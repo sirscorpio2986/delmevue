@@ -1,0 +1,5 @@
+{
+  "cpu": { "used": 4, "total": 8, "unit": "vCPU" },
+  "memory": { "used": 28, "total": 64, "unit": "GB" },
+  "storage": { "used": 350, "total": 1000, "unit": "GB" }
+} 

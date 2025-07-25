@@ -1,0 +1,5 @@
+[
+  { "id": "INV-2025-003", "date": "2025-07-15", "amount": 95.00, "status": "Paid", "url": "#" },
+  { "id": "INV-2025-002", "date": "2025-06-15", "amount": 110.50, "status": "Paid", "url": "#" },
+  { "id": "INV-2025-001", "date": "2025-05-15", "amount": 99.75, "status": "Paid", "url": "#" }
+] 

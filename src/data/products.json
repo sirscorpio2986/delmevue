@@ -1,0 +1,72 @@
+[
+  {
+    "id": "compute-01",
+    "category": "Compute",
+    "name": "General Purpose VM",
+    "description": "Balanced compute, memory, and networking for a wide variety of workloads.",
+    "specs": ["2-64 vCPUs", "8-256 GB RAM", "Up to 40 Gbps networking", "SSD persistent disks"]
+  },
+  {
+    "id": "compute-02", 
+    "category": "Compute",
+    "name": "High-Performance VM",
+    "description": "Optimized for compute-intensive workloads requiring high CPU performance.",
+    "specs": ["16-96 vCPUs", "64-384 GB RAM", "Intel Xeon processors", "Local SSD storage"]
+  },
+  {
+    "id": "compute-03",
+    "category": "Compute", 
+    "name": "Memory-Optimized VM",
+    "description": "High memory-to-vCPU ratios for memory-intensive applications.",
+    "specs": ["2-128 vCPUs", "26-3844 GB RAM", "SAP HANA certified", "Sustained use discounts"]
+  },
+  {
+    "id": "ai-01",
+    "category": "AI & ML",
+    "name": "GPU Accelerated VM",
+    "description": "High-performance GPUs for machine learning, AI training, and inference.",
+    "specs": ["NVIDIA A100 40GB", "12-96 vCPUs", "85-1360 GB RAM", "Up to 8 GPUs per instance"]
+  },
+  {
+    "id": "ai-02",
+    "category": "AI & ML", 
+    "name": "ML Training Platform",
+    "description": "Fully managed platform for training machine learning models at scale.",
+    "specs": ["Auto-scaling clusters", "TensorFlow & PyTorch", "Distributed training", "Model versioning"]
+  },
+  {
+    "id": "ai-03",
+    "category": "AI & ML",
+    "name": "AI Inference Engine", 
+    "description": "Deploy and serve machine learning models with low latency.",
+    "specs": ["Real-time predictions", "Batch processing", "A/B testing", "Auto-scaling endpoints"]
+  },
+  {
+    "id": "storage-01",
+    "category": "Storage",
+    "name": "Block Storage",
+    "description": "High-performance block storage that can be attached to any VM instance.",
+    "specs": ["Up to 64 TB per disk", "Up to 100,000 IOPS", "Encryption at rest", "Snapshot backups"]
+  },
+  {
+    "id": "storage-02", 
+    "category": "Storage",
+    "name": "Object Storage",
+    "description": "Scalable object storage for unstructured data with global accessibility.",
+    "specs": ["Unlimited capacity", "99.999999999% durability", "Multi-region replication", "CDN integration"]
+  },
+  {
+    "id": "network-01",
+    "category": "Networking",
+    "name": "Virtual Private Cloud",
+    "description": "Secure, isolated cloud network with customizable IP ranges and subnets.",
+    "specs": ["Custom IP ranges", "Firewall rules", "VPN connectivity", "Load balancing"]
+  },
+  {
+    "id": "network-02",
+    "category": "Networking", 
+    "name": "Content Delivery Network",
+    "description": "Global CDN for fast content delivery with edge caching.",
+    "specs": ["200+ edge locations", "SSL/TLS termination", "DDoS protection", "Real-time analytics"]
+  }
+] 
