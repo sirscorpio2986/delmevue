@@ -268,9 +268,10 @@
         }
     }
 
-    // Different images and icons for each card
+    // Different images and icons for each card - Updated to match h3 titles
     .tn-card:nth-child(1) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* GPU-as-a-Service: GPU hardware/server racks */
+        background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(1) .tn-card__image::before {
@@ -278,7 +279,8 @@
     }
 
     .tn-card:nth-child(2) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* Model Catalog & Registry: Data models, code, or registry */
+        background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(2) .tn-card__image::before {
@@ -286,7 +288,8 @@
     }
 
     .tn-card:nth-child(3) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* Secure AI Lab: Security, padlock, or lab */
+        background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(3) .tn-card__image::before {
@@ -294,7 +297,8 @@
     }
 
     .tn-card:nth-child(4) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* AI Studio Apps: App development, dashboard, or creative workspace */
+        background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(4) .tn-card__image::before {
@@ -302,7 +306,8 @@
     }
 
     .tn-card:nth-child(5) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/3183151/pexels-photo-3183151.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* LLM API Access: API, cloud, or code integration */
+        background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(5) .tn-card__image::before {
@@ -310,7 +315,8 @@
     }
 
     .tn-card:nth-child(6) .tn-card__image {
-        background-image: url('https://images.pexels.com/photos/3183152/pexels-photo-3183152.jpeg?auto=compress&cs=tinysrgb&w=800');
+        /* Data Fabric & Governance: Data network, compliance, or governance */
+        background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80');
     }
 
     .tn-card:nth-child(6) .tn-card__image::before {
@@ -424,7 +430,7 @@
         color: white;
         border: none;
         padding: 0.75rem 1.5rem;
-        border-radius: 0.375rem;
+        border-radius: 625rem;
         font-weight: 600;
         font-size: 0.875rem;
         text-decoration: none;
