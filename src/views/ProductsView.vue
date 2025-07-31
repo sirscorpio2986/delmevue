@@ -48,7 +48,7 @@ onMounted(async () => {
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 3rem;
-        color: $primary-blue;
+        color: $brand-blue;
     }
 
     .product-grid {

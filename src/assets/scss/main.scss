@@ -1,17 +1,107 @@
-@import 'variables';
+@import './_variables';
 
-// CSS Reset for box-sizing
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+// Telenor Evolution Font Family - Complete Set
+@font-face {
+  font-family: 'Telenor Evolution';
+  src: url('/fonts/TelenorEvolutionUI-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
-// Body defaults
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: $light-grey;
-  color: $dark-text;
+@font-face {
+  font-family: 'Telenor Evolution';
+  src: url('/fonts/TelenorEvolution-Normal.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telenor Evolution';
+  src: url('/fonts/TelenorEvolutionUI-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telenor Evolution';
+  src: url('/fonts/TelenorEvolution-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Telenor Evolution';
+  src: url('/fonts/TelenorEvolution-ExtraBoldSlanted.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Basic CSS Reset
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: $font-family-base;
+  background-color: $brand-white; // Clean white background
+  color: $dark-grey-text;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $brand-black;
+  font-family: $font-family-base;
+}
+
+h1 {
+  font-weight: 800; // Extra Bold
+}
+
+h2, h3 {
+  font-weight: 700; // Bold
+}
+
+h4, h5, h6 {
+  font-weight: 500; // Medium
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Telenor Font Weight Utilities
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extra-bold {
+  font-weight: 800;
+}
+
+.font-italic {
+  font-style: italic;
 } 

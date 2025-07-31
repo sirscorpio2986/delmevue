@@ -1,10 +1,30 @@
-// Color Palette
+// Core Palette
 $primary-blue: #00a9e0;
-$dark-text: #333333;
-$light-grey: #f4f4f4;
+$black: #000000;
 $white: #ffffff;
-$border-color: #dddddd;
-$dark-background: #111827;
 
-// Border Radius
-$border-radius: 8px; 
+// Brand Colors (aliases for consistency)
+$brand-white: $white;
+$brand-black: $black;
+$brand-blue: $primary-blue;
+
+// UI & Text Palette
+$background-grey: #f8f8f8;
+$light-grey-bg: $background-grey;
+$border-grey: #e5e5e5;
+$medium-grey: #cccccc;
+$text-dark: #333333;
+$text-light: #666666;
+$dark-grey-text: $text-dark;
+$link-blue: #0077c8;
+$link-color: $link-blue;
+
+// Typography - Complete Telenor Evolution font family with fallbacks
+$font-family-base: "Telenor Evolution", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-light: "Telenor Evolution", sans-serif;
+$font-family-medium: "Telenor Evolution", sans-serif;
+$font-family-bold: "Telenor Evolution", sans-serif;
+
+// UI Elements
+$border-radius: 4px;
+$box-shadow: 0 2px 4px rgba(0,0,0,0.05); 

@@ -88,7 +88,7 @@ const downloadInvoice = (invoice: Invoice) => {
 .billing-view {
     min-height: 100vh;
     padding: 2rem 1rem;
-    background: $light-grey;
+    background: $light-grey-bg;
 }
 
 .container {
@@ -97,14 +97,14 @@ const downloadInvoice = (invoice: Invoice) => {
 }
 
 .billing-card {
-    background: $white;
+    background: $brand-white;
     padding: 3rem;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid $border-color;
+    border: 1px solid $medium-grey;
 
     h2 {
-        color: $primary-blue;
+        color: $brand-blue;
         margin-bottom: 2rem;
         font-size: 2rem;
         text-align: center;
@@ -121,12 +121,12 @@ table {
     margin-top: 1rem;
 
     th {
-        background: $light-grey;
-        color: $dark-text;
+        background: $light-grey-bg;
+        color: $dark-grey-text;
         font-weight: 600;
         padding: 1rem;
         text-align: left;
-        border-bottom: 2px solid $border-color;
+        border-bottom: 2px solid $medium-grey;
         font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 0.5px;
@@ -134,8 +134,8 @@ table {
 
     td {
         padding: 1rem;
-        border-bottom: 1px solid $border-color;
-        color: $dark-text;
+        border-bottom: 1px solid $medium-grey;
+        color: $dark-grey-text;
     }
 
     tr:hover {
@@ -145,7 +145,7 @@ table {
     .invoice-id {
         font-family: monospace;
         font-weight: 600;
-        color: $primary-blue;
+        color: $brand-blue;
     }
 
     .amount {
@@ -177,8 +177,8 @@ table {
 }
 
 .download-btn {
-    background: $primary-blue;
-    color: $white;
+    background: $brand-blue;
+    color: $brand-white;
     border: none;
     border-radius: $border-radius;
     padding: 0.5rem 1rem;
@@ -188,14 +188,14 @@ table {
     transition: background-color 0.2s ease;
 
     &:hover {
-        background: darken($primary-blue, 10%);
+        background: darken($brand-blue, 10%);
     }
 }
 
 .loading {
     text-align: center;
     padding: 2rem;
-    color: $dark-text;
+    color: $dark-grey-text;
     font-style: italic;
 }
 

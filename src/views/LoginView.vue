@@ -81,7 +81,7 @@ const handleLogin = async () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $light-grey;
+    background: $light-grey-bg;
     padding: 2rem 1rem;
 }
 
@@ -91,15 +91,15 @@ const handleLogin = async () => {
 }
 
 .login-card {
-    background: $white;
+    background: $brand-white;
     padding: 2.5rem;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid $border-color;
+    border: 1px solid $medium-grey;
 
     h1 {
         text-align: center;
-        color: $primary-blue;
+        color: $brand-blue;
         margin-bottom: 2rem;
         font-size: 1.75rem;
     }
@@ -111,21 +111,21 @@ const handleLogin = async () => {
     label {
         display: block;
         margin-bottom: 0.5rem;
-        color: $dark-text;
+        color: $dark-grey-text;
         font-weight: 500;
     }
 
     input {
         width: 100%;
         padding: 0.75rem;
-        border: 1px solid $border-color;
+        border: 1px solid $medium-grey;
         border-radius: $border-radius;
         font-size: 1rem;
         transition: border-color 0.2s ease;
 
         &:focus {
             outline: none;
-            border-color: $primary-blue;
+            border-color: $brand-blue;
         }
 
         &::placeholder {
@@ -143,8 +143,8 @@ const handleLogin = async () => {
 
 .login-btn {
     width: 100%;
-    background: $primary-blue;
-    color: $white;
+    background: $brand-blue;
+    color: $brand-white;
     border: none;
     border-radius: $border-radius;
     padding: 0.75rem;
@@ -154,7 +154,7 @@ const handleLogin = async () => {
     transition: background-color 0.2s ease;
 
     &:hover:not(:disabled) {
-        background: darken($primary-blue, 10%);
+        background: darken($brand-blue, 10%);
     }
 
     &:disabled {
@@ -166,7 +166,7 @@ const handleLogin = async () => {
 .demo-credentials {
     margin-top: 2rem;
     padding-top: 1.5rem;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $medium-grey;
     text-align: center;
     font-size: 0.9rem;
     color: #666;

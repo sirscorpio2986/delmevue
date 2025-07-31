@@ -47,7 +47,7 @@ const authStore = useAuthStore()
 .account-view {
     min-height: 100vh;
     padding: 2rem 1rem;
-    background: $light-grey;
+    background: $light-grey-bg;
 }
 
 .container {
@@ -56,21 +56,21 @@ const authStore = useAuthStore()
 }
 
 .account-card {
-    background: $white;
+    background: $brand-white;
     padding: 3rem;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid $border-color;
+    border: 1px solid $medium-grey;
 
     h1 {
-        color: $primary-blue;
+        color: $brand-blue;
         margin-bottom: 1rem;
         font-size: 2.25rem;
     }
 
     >p {
         font-size: 1.1rem;
-        color: $dark-text;
+        color: $dark-grey-text;
         margin-bottom: 2rem;
         opacity: 0.8;
     }
@@ -78,25 +78,25 @@ const authStore = useAuthStore()
 
 .tab-nav {
     display: flex;
-    border-bottom: 2px solid $border-color;
+    border-bottom: 2px solid $medium-grey;
     margin: 2rem 0;
 
     .tab-link {
         padding: 1rem 2rem;
         text-decoration: none;
-        color: $dark-text;
+        color: $dark-grey-text;
         font-weight: 500;
         border-bottom: 3px solid transparent;
         transition: all 0.2s ease;
 
         &:hover {
-            color: $primary-blue;
+            color: $brand-blue;
             background: rgba(0, 169, 224, 0.05);
         }
 
         &.router-link-exact-active {
-            color: $primary-blue;
-            border-bottom-color: $primary-blue;
+            color: $brand-blue;
+            border-bottom-color: $brand-blue;
             background: rgba(0, 169, 224, 0.05);
         }
     }
@@ -109,10 +109,10 @@ const authStore = useAuthStore()
 .user-info {
     margin-top: 2rem;
     padding-top: 2rem;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $medium-grey;
 
     h3 {
-        color: $dark-text;
+        color: $dark-grey-text;
         margin-bottom: 1.5rem;
         font-size: 1.5rem;
     }
@@ -120,10 +120,10 @@ const authStore = useAuthStore()
     .info-item {
         margin-bottom: 1rem;
         font-size: 1rem;
-        color: $dark-text;
+        color: $dark-grey-text;
 
         strong {
-            color: $primary-blue;
+            color: $brand-blue;
             margin-right: 0.5rem;
         }
     }

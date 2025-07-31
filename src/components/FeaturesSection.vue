@@ -94,7 +94,7 @@ onMounted(async () => {
         text-align: center;
         font-size: 2.5rem;
         margin-bottom: 1rem;
-        color: $dark-text;
+        color: $dark-grey-text;
         font-weight: 700;
     }
 
@@ -130,7 +130,7 @@ onMounted(async () => {
     }
 
     .product-card {
-        background: $white;
+        background: $brand-white;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -184,7 +184,7 @@ onMounted(async () => {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
-            color: $dark-text;
+            color: $dark-grey-text;
         }
 
         p {
@@ -219,11 +219,11 @@ onMounted(async () => {
             .price-text {
                 font-size: 1.1rem;
                 font-weight: 600;
-                color: $primary-blue;
+                color: $brand-blue;
             }
 
             .cta-button {
-                background: $primary-blue;
+                background: $brand-blue;
                 color: white;
                 border: none;
                 padding: 0.6rem 1.2rem;
@@ -234,7 +234,7 @@ onMounted(async () => {
                 transition: all 0.2s ease;
 
                 &:hover {
-                    background: darken($primary-blue, 8%);
+                    background: darken($brand-blue, 8%);
                     transform: translateX(4px);
                 }
             }

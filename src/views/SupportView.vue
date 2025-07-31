@@ -133,7 +133,7 @@ const submitTicket = async () => {
 .support-view {
     min-height: 100vh;
     padding: 2rem 1rem;
-    background: $light-grey;
+    background: $light-grey-bg;
 }
 
 .container {
@@ -142,21 +142,21 @@ const submitTicket = async () => {
 }
 
 .support-card {
-    background: $white;
+    background: $brand-white;
     padding: 3rem;
     border-radius: $border-radius;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid $border-color;
+    border: 1px solid $medium-grey;
 
     h2 {
-        color: $primary-blue;
+        color: $brand-blue;
         margin-bottom: 2rem;
         font-size: 2rem;
         text-align: center;
     }
 
     h3 {
-        color: $dark-text;
+        color: $dark-grey-text;
         margin-bottom: 1.5rem;
         font-size: 1.5rem;
     }
@@ -165,7 +165,7 @@ const submitTicket = async () => {
 .new-ticket-section {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid $medium-grey;
 }
 
 .ticket-form {
@@ -175,7 +175,7 @@ const submitTicket = async () => {
         label {
             display: block;
             margin-bottom: 0.5rem;
-            color: $dark-text;
+            color: $dark-grey-text;
             font-weight: 500;
         }
 
@@ -183,14 +183,14 @@ const submitTicket = async () => {
         textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid $border-color;
+            border: 1px solid $medium-grey;
             border-radius: $border-radius;
             font-size: 1rem;
             transition: border-color 0.2s ease;
 
             &:focus {
                 outline: none;
-                border-color: $primary-blue;
+                border-color: $brand-blue;
             }
 
             &::placeholder {
@@ -204,8 +204,8 @@ const submitTicket = async () => {
     }
 
     .submit-btn {
-        background: $primary-blue;
-        color: $white;
+        background: $brand-blue;
+        color: $brand-white;
         border: none;
         border-radius: $border-radius;
         padding: 0.75rem 2rem;
@@ -215,7 +215,7 @@ const submitTicket = async () => {
         transition: background-color 0.2s ease;
 
         &:hover:not(:disabled) {
-            background: darken($primary-blue, 10%);
+            background: darken($brand-blue, 10%);
         }
 
         &:disabled {
@@ -236,12 +236,12 @@ const submitTicket = async () => {
         margin-top: 1rem;
 
         th {
-            background: $light-grey;
-            color: $dark-text;
+            background: $light-grey-bg;
+            color: $dark-grey-text;
             font-weight: 600;
             padding: 1rem;
             text-align: left;
-            border-bottom: 2px solid $border-color;
+            border-bottom: 2px solid $medium-grey;
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -249,8 +249,8 @@ const submitTicket = async () => {
 
         td {
             padding: 1rem;
-            border-bottom: 1px solid $border-color;
-            color: $dark-text;
+            border-bottom: 1px solid $medium-grey;
+            color: $dark-grey-text;
         }
 
         tr:hover {
@@ -260,7 +260,7 @@ const submitTicket = async () => {
         .ticket-id {
             font-family: monospace;
             font-weight: 600;
-            color: $primary-blue;
+            color: $brand-blue;
         }
 
         .subject {
@@ -297,7 +297,7 @@ const submitTicket = async () => {
 .loading {
     text-align: center;
     padding: 2rem;
-    color: $dark-text;
+    color: $dark-grey-text;
     font-style: italic;
 }
 

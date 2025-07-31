@@ -125,7 +125,7 @@ onMounted(async () => {
         margin-bottom: 1.5rem;
 
         h3 {
-            color: $dark-text;
+            color: $dark-grey-text;
             font-size: 1.1rem;
             font-weight: 600;
         }
@@ -136,7 +136,7 @@ onMounted(async () => {
         padding: 0;
         position: sticky;
         top: 120px;
-        background: $white;
+        background: $brand-white;
         border-radius: 12px;
         padding: 1rem;
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -145,7 +145,7 @@ onMounted(async () => {
     li a {
         display: block;
         padding: 1rem 1.5rem;
-        color: $dark-text;
+        color: $dark-grey-text;
         text-decoration: none;
         border-radius: 8px;
         font-weight: 500;
@@ -154,12 +154,12 @@ onMounted(async () => {
 
         &:hover {
             background-color: #f3f4f6;
-            color: $primary-blue;
+            color: $brand-blue;
         }
 
         &.active-link {
-            background-color: $primary-blue;
-            color: $white;
+            background-color: $brand-blue;
+            color: $brand-white;
             font-weight: 600;
         }
     }
@@ -175,7 +175,7 @@ onMounted(async () => {
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
-            color: $dark-text;
+            color: $dark-grey-text;
         }
 
         p {
@@ -186,7 +186,7 @@ onMounted(async () => {
 }
 
 .product-item {
-    background-color: $white;
+    background-color: $brand-white;
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 2rem;
@@ -209,7 +209,7 @@ onMounted(async () => {
     h3 {
         font-size: 1.5rem;
         margin-bottom: 1rem;
-        color: $dark-text;
+        color: $dark-grey-text;
         font-weight: 600;
     }
 }
@@ -248,7 +248,7 @@ onMounted(async () => {
             display: block;
             font-size: 1.5rem;
             font-weight: 700;
-            color: $primary-blue;
+            color: $brand-blue;
             margin-bottom: 0.25rem;
         }
 
@@ -259,8 +259,8 @@ onMounted(async () => {
     }
 
     .purchase-btn {
-        background: $primary-blue;
-        color: $white;
+        background: $brand-blue;
+        color: $brand-white;
         border: none;
         padding: 0.75rem 2rem;
         font-size: 1rem;
@@ -270,7 +270,7 @@ onMounted(async () => {
         transition: all 0.2s ease;
 
         &:hover {
-            background: darken($primary-blue, 8%);
+            background: darken($brand-blue, 8%);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 169, 224, 0.3);
         }

@@ -102,7 +102,7 @@ const storageChartData = computed(() => {
 
 .usage-charts {
     h3 {
-        color: $dark-text;
+        color: $dark-grey-text;
         margin-bottom: 2rem;
         font-size: 1.5rem;
         text-align: center;
@@ -119,7 +119,7 @@ const storageChartData = computed(() => {
         text-align: center;
 
         h4 {
-            color: $primary-blue;
+            color: $brand-blue;
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
@@ -131,7 +131,7 @@ const storageChartData = computed(() => {
 
         .usage-text {
             font-size: 0.9rem;
-            color: $dark-text;
+            color: $dark-grey-text;
             font-weight: 500;
         }
     }

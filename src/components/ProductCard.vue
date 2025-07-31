@@ -23,9 +23,9 @@ defineProps<{
 @import '@/assets/scss/variables';
 
 .card {
-    background: $white;
+    background: $brand-white;
     padding: 1.5rem;
-    border: 1px solid $border-color;
+    border: 1px solid $medium-grey;
     border-radius: $border-radius;
     transition: box-shadow 0.2s ease;
 
@@ -37,7 +37,7 @@ defineProps<{
         font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
-        color: $primary-blue;
+        color: $brand-blue;
         letter-spacing: 0.5px;
         margin-bottom: 0.5rem;
         display: block;
@@ -46,13 +46,13 @@ defineProps<{
     h3 {
         font-size: 1.25rem;
         margin: 0 0 0.75rem 0;
-        color: $dark-text;
+        color: $dark-grey-text;
     }
 
     p {
         font-size: 0.9rem;
         line-height: 1.5;
-        color: $dark-text;
+        color: $dark-grey-text;
         margin: 0;
         opacity: 0.8;
     }

@@ -104,14 +104,14 @@ const handlePurchase = (product: Product) => {
 }
 
 .purchase-card {
-    background: $white;
+    background: $brand-white;
     padding: 3rem;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
 
     h2 {
-        color: $primary-blue;
+        color: $brand-blue;
         margin-bottom: 1rem;
         font-size: 2.5rem;
         text-align: center;
@@ -148,7 +148,7 @@ const handlePurchase = (product: Product) => {
 }
 
 .product-card {
-    background: $white;
+    background: $brand-white;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -204,7 +204,7 @@ const handlePurchase = (product: Product) => {
         font-size: 1.3rem;
         font-weight: 600;
         margin-bottom: 0.75rem;
-        color: $dark-text;
+        color: $dark-grey-text;
     }
 
     p {
@@ -245,7 +245,7 @@ const handlePurchase = (product: Product) => {
             display: block;
             font-size: 1.3rem;
             font-weight: 700;
-            color: $primary-blue;
+            color: $brand-blue;
             margin-bottom: 0.25rem;
         }
 
@@ -256,8 +256,8 @@ const handlePurchase = (product: Product) => {
     }
 
     .purchase-btn {
-        background: $primary-blue;
-        color: $white;
+        background: $brand-blue;
+        color: $brand-white;
         border: none;
         border-radius: 25px;
         padding: 0.75rem 2rem;
@@ -268,7 +268,7 @@ const handlePurchase = (product: Product) => {
         width: 100%;
 
         &:hover {
-            background: darken($primary-blue, 8%);
+            background: darken($brand-blue, 8%);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 169, 224, 0.3);
         }
