@@ -1,0 +1,6 @@
+[
+  { "name": "High-Speed Storage", "description": "Extra NVMe Tier for ultra-fast data access", "price": "NOK XX/month" },
+  { "name": "Object Storage", "description": "S3-Compatible scalable object storage", "price": "NOK XX/month" },
+  { "name": "VPN", "description": "Secure Access to your private GPU network", "price": "NOK XX/month" },
+  { "name": "Public IP", "description": "Dedicated Public IP Address for your instance", "price": "NOK XX/month" }
+] 

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "type": "gpu_started",
+    "title": "GPU Instance Started",
+    "description": "A100-80GB instance 'ai-training-01' started successfully",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "status": "success"
+  },
+  {
+    "id": "2",
+    "type": "model_deployed",
+    "title": "Model Deployed",
+    "description": "Custom BERT model deployed to production environment",
+    "timestamp": "2024-01-15T09:15:00Z",
+    "status": "success"
+  },
+  {
+    "id": "3",
+    "type": "billing_alert",
+    "title": "Billing Alert",
+    "description": "Monthly spend threshold (€1000) reached",
+    "timestamp": "2024-01-15T08:45:00Z",
+    "status": "warning"
+  },
+  {
+    "id": "4",
+    "type": "api_key_rotated",
+    "title": "API Key Rotated",
+    "description": "Production API key rotated for security compliance",
+    "timestamp": "2024-01-14T16:20:00Z",
+    "status": "info"
+  },
+  {
+    "id": "5",
+    "type": "backup_completed",
+    "title": "Backup Completed",
+    "description": "Automated backup of training data completed successfully",
+    "timestamp": "2024-01-14T14:30:00Z",
+    "status": "success"
+  },
+  {
+    "id": "6",
+    "type": "instance_stopped",
+    "title": "GPU Instance Stopped",
+    "description": "V100-32GB instance 'dev-test-02' stopped to save costs",
+    "timestamp": "2024-01-14T12:00:00Z",
+    "status": "info"
+  }
+] 

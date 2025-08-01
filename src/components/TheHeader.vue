@@ -5,6 +5,13 @@ import { useAuthStore } from '@/store/authStore';
 
 const authStore = useAuthStore();
 const searchQuery = ref('');
+
+const scrollToMarketplace = () => {
+    const marketplaceSection = document.getElementById('marketplace-section');
+    if (marketplaceSection) {
+        marketplaceSection.scrollIntoView({ behavior: 'smooth' });
+    }
+};
 </script>
 
 <template>
@@ -49,7 +56,7 @@ const searchQuery = ref('');
                             <span class="cnt-link__text cnt-link__text--no-hover">Home</span>
                         </RouterLink>
                     </li>
-                    <li class="tn-page-header__main-item">
+                    <li class="tn-page-header__main-item" hidden>
                         <RouterLink to="/platform-pillars/"
                             class="cnt-link tn-page-header__main-item__link d-flex tn-page-header__main-item__link--has-children"
                             target="_self" data-test="Platform-Pillars">
@@ -88,26 +95,14 @@ const searchQuery = ref('');
                         </ul>
                     </li>
                     <li class="tn-page-header__main-item">
-                        <RouterLink to="/gpu-as-a-service/" class="cnt-link tn-page-header__main-item__link d-flex"
-                            target="_self" data-test="GPU-Service">
-                            <span class="cnt-link__text cnt-link__text--no-hover">GPU as a Service</span>
-                        </RouterLink>
-                    </li>
-                    <li class="tn-page-header__main-item">
-                        <RouterLink to="/marketplace/" class="cnt-link tn-page-header__main-item__link d-flex"
-                            target="_self" data-test="Marketplace">
+                        <button @click="scrollToMarketplace" class="cnt-link tn-page-header__main-item__link d-flex"
+                            data-test="Marketplace">
                             <span class="cnt-link__text cnt-link__text--no-hover">Marketplace</span>
-                        </RouterLink>
+                        </button>
                     </li>
                     <li class="tn-page-header__main-item">
-                        <RouterLink to="/ai-factory-portal/" class="cnt-link tn-page-header__main-item__link d-flex"
-                            target="_self" data-test="AI-Factory">
-                            <span class="cnt-link__text cnt-link__text--no-hover">AI Factory Portal</span>
-                        </RouterLink>
-                    </li>
-                    <li class="tn-page-header__main-item">
-                        <RouterLink to="/contact/" class="cnt-link tn-page-header__main-item__link d-flex"
-                            target="_self" data-test="Contact">
+                        <RouterLink to="/contact" class="cnt-link tn-page-header__main-item__link d-flex" target="_self"
+                            data-test="Contact">
                             <span class="cnt-link__text cnt-link__text--no-hover">Contact Us</span>
                         </RouterLink>
                     </li>
@@ -130,7 +125,7 @@ const searchQuery = ref('');
                 </form>
             </div>
 
-            <RouterLink v-if="authStore.isLoggedIn" to="/dashboard"
+            <RouterLink v-if="authStore.isLoggedIn" to="/account"
                 class="tn-button tn-button--link tn-button--small text-center text-nowrap tn-page-header__quick-link"
                 target="_self">
                 <span class="d-flex justify-content-center tn-page-header__quick-link-icon icon icon-user"
@@ -144,12 +139,6 @@ const searchQuery = ref('');
                     aria-hidden="true" role="img" alt=""></span>
                 <span class="tn-page-header__quick-link__link-text">Log in</span>
             </RouterLink>
-            <a class="tn-button tn-button--link tn-button--small text-center text-nowrap tn-page-header__quick-link"
-                href="/support/" target="_self">
-                <span class="d-flex justify-content-center tn-page-header__quick-link-icon icon icon-iot"
-                    aria-hidden="true" role="img" alt=""></span>
-                <span class="tn-page-header__quick-link__link-text">Help & Support</span>
-            </a>
         </div>
 
         <nav class="tn-page-header__sub-items-navigation">
@@ -543,6 +532,25 @@ const searchQuery = ref('');
             order: 2;
             margin-left: 0.5rem;
         }
+    }
+}
+
+// Button styling for marketplace link
+button.cnt-link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: $link-blue;
     }
 }
 

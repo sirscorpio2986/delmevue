@@ -11,8 +11,9 @@
                     </div>
                 </div>
                 <div class="actions-group d-lg-flex gap-large mt-xlarge">
-                    <a href="#" class="tn-button tn-button--dark" target="_self" title="Explore Platform">Explore
-                        Platform</a>
+                    <button @click="scrollToServices" class="tn-button tn-button--dark" title="Explore Platform">
+                        Explore Platform
+                    </button>
                     <a href="#" class="tn-button tn-button--link tn-button--dark mt-medium mt-lg-0" target="_self"
                         title="Schedule Demo">Schedule Demo</a>
                 </div>
@@ -22,7 +23,20 @@
 </template>
 
 <script setup lang="ts">
-// No script logic needed for this static component
+const scrollToServices = () => {
+    const servicesSection = document.getElementById('service-offerings');
+    if (servicesSection) {
+        servicesSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+        // Emit an event to switch to GPU services tab
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('switchToGpuServices'));
+        }, 500);
+    }
+};
 </script>
 
 <style lang="scss" scoped>

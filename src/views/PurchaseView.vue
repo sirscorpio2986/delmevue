@@ -1,318 +1,608 @@
 <template>
-    <main class="purchase-view">
-        <div class="container">
-            <div class="purchase-card">
-                <h2>Cloud Billing & Usage</h2>
-                <p>Monitor your cloud resource usage and manage billing for all your infrastructure services.</p>
+    <div class="marketplace-view">
+        <div class="marketplace-container">
+            <!-- Header Section -->
+            <div class="marketplace-header">
+                <h1>Discover pre-built AI solutions and infrastructure for your industry.</h1>
+                <p class="results-count">Showing {{ filteredSolutions.length }} of {{ aiSolutions.length }} solutions
+                </p>
+            </div>
 
-                <div v-if="products.length > 0" class="product-grid">
-                    <div v-for="product in products" :key="product.id" class="product-item">
-                        <div class="product-card">
-                            <div class="product-header">
-                                <div class="category-badge">{{ product.category }}</div>
-                                <div class="product-image">
-                                    <img :src="getProductImage(product.category)" :alt="product.name" />
+            <div class="marketplace-content">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filters-section">
+                        <h3>Filters</h3>
+
+                        <div class="filter-group">
+                            <label for="category-filter">Category</label>
+                            <select id="category-filter" v-model="filters.category">
+                                <option value="All">All</option>
+                                <option value="Telecom">Telecom</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Retail">Retail</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="service-type-filter">Service Type</label>
+                            <select id="service-type-filter" v-model="filters.serviceType">
+                                <option value="All">All</option>
+                                <option value="SaaS">SaaS</option>
+                                <option value="PaaS">PaaS</option>
+                                <option value="IaaS">IaaS</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="pricing-filter">Pricing Model</label>
+                            <select id="pricing-filter" v-model="filters.pricingModel">
+                                <option value="All">All</option>
+                                <option value="Subscription">Subscription</option>
+                                <option value="Usage-based">Usage-based</option>
+                                <option value="One-time">One-time</option>
+                            </select>
+                        </div>
+
+                        <button @click="applyFilters" class="apply-filters-btn">Apply Filters</button>
+                    </div>
+                </aside>
+
+                <!-- Solutions Grid -->
+                <div class="solutions-grid">
+                    <!-- Popular Column -->
+                    <div class="solutions-column">
+                        <h3 class="column-title">Popular</h3>
+                        <div class="solution-cards">
+                            <div v-for="solution in popularSolutions" :key="solution.id" class="solution-card">
+                                <div class="solution-header">
+                                    <div class="solution-tags">
+                                        <span v-for="tag in solution.tags" :key="tag" class="tag">{{ tag }}</span>
+                                    </div>
+                                    <h4 class="solution-title">{{ solution.title }}</h4>
+                                    <p class="solution-description">{{ solution.description }}</p>
+                                </div>
+                                <div class="solution-footer">
+                                    <div class="solution-price">{{ solution.price }}</div>
+                                    <div class="solution-compliance">
+                                        <span v-for="compliance in solution.compliance" :key="compliance"
+                                            class="compliance-badge">{{ compliance }}</span>
+                                    </div>
+                                    <div class="solution-actions">
+                                        <button class="action-btn primary">Request Access</button>
+                                        <button class="action-btn secondary">Learn More</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="product-content">
-                                <h3>{{ product.name }}</h3>
-                                <p>{{ product.description }}</p>
-                                <div class="product-features" v-if="product.specs && product.specs.length > 0">
-                                    <div class="feature" v-for="(spec, index) in product.specs.slice(0, 3)"
-                                        :key="index">
-                                        <span class="checkmark">✓</span>
-                                        <span>{{ spec }}</span>
+                        </div>
+                    </div>
+
+                    <!-- New Column -->
+                    <div class="solutions-column">
+                        <h3 class="column-title">New</h3>
+                        <div class="solution-cards">
+                            <div v-for="solution in newSolutions" :key="solution.id" class="solution-card">
+                                <div class="solution-header">
+                                    <div class="solution-tags">
+                                        <span v-for="tag in solution.tags" :key="tag" class="tag">{{ tag }}</span>
+                                    </div>
+                                    <h4 class="solution-title">{{ solution.title }}</h4>
+                                    <p class="solution-description">{{ solution.description }}</p>
+                                </div>
+                                <div class="solution-footer">
+                                    <div class="solution-price">{{ solution.price }}</div>
+                                    <div class="solution-compliance">
+                                        <span v-for="compliance in solution.compliance" :key="compliance"
+                                            class="compliance-badge">{{ compliance }}</span>
+                                    </div>
+                                    <div class="solution-actions">
+                                        <button class="action-btn primary">Request Access</button>
+                                        <button class="action-btn secondary">Learn More</button>
                                     </div>
                                 </div>
-                                <div class="purchase-actions">
-                                    <div class="pricing-info">
-                                        <span class="price-display">Pay-as-you-go</span>
-                                        <span class="price-note">Usage-based pricing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Best Value Column -->
+                    <div class="solutions-column">
+                        <h3 class="column-title">Best Value</h3>
+                        <div class="solution-cards">
+                            <div v-for="solution in bestValueSolutions" :key="solution.id" class="solution-card">
+                                <div class="solution-header">
+                                    <div class="solution-tags">
+                                        <span v-for="tag in solution.tags" :key="tag" class="tag">{{ tag }}</span>
                                     </div>
-                                    <button @click="handlePurchase(product)" class="purchase-btn">
-                                        Launch Service
-                                    </button>
+                                    <h4 class="solution-title">{{ solution.title }}</h4>
+                                    <p class="solution-description">{{ solution.description }}</p>
+                                </div>
+                                <div class="solution-footer">
+                                    <div class="solution-price">{{ solution.price }}</div>
+                                    <div class="solution-compliance">
+                                        <span v-for="compliance in solution.compliance" :key="compliance"
+                                            class="compliance-badge">{{ compliance }}</span>
+                                    </div>
+                                    <div class="solution-actions">
+                                        <button class="action-btn primary">Request Access</button>
+                                        <button class="action-btn secondary">Learn More</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div v-else class="loading">
-                    Loading services...
+            <!-- Pagination -->
+            <div class="pagination">
+                <span class="pagination-info">Showing 1 to 6 of 8 results</span>
+                <div class="pagination-controls">
+                    <button class="pagination-btn" disabled>&lt;</button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">&gt;</button>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { apiService } from '@/services/apiService'
-import { useAuthStore } from '@/store/authStore'
+import { ref, computed, onMounted } from 'vue'
 
-interface Product {
+interface AISolution {
     id: string
-    category: string
-    name: string
+    title: string
     description: string
-    specs: string[]
+    tags: string[]
+    price: string
+    compliance: string[]
+    category: 'Popular' | 'New' | 'Best Value'
+    serviceType: string
+    pricingModel: string
 }
 
-const router = useRouter()
-const route = useRoute()
-const authStore = useAuthStore()
-const products = ref<Product[]>([])
-
-const getProductImage = (category: string) => {
-    const images = {
-        'Compute': 'https://images.unsplash.com/photo-1597733336794-12d05021d510?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'AI & ML': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'Storage': 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-        'Networking': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
+const aiSolutions = ref<AISolution[]>([
+    {
+        id: '1',
+        title: 'Predictive Churn ML',
+        description: 'AI model that predicts customer churn risk with 92% accuracy, helping reduce attrition by up to 30%.',
+        tags: ['Telecom', 'SaaS'],
+        price: '19,990 NOK/mo',
+        compliance: ['GDPR', 'ISO 27001'],
+        category: 'Popular',
+        serviceType: 'SaaS',
+        pricingModel: 'Subscription'
+    },
+    {
+        id: '2',
+        title: 'Fraud Detection AI',
+        description: 'Machine learning system that identifies fraudulent transactions with 99.1% accuracy in real-time.',
+        tags: ['Finance', 'SaaS'],
+        price: '27,800 NOK/mo',
+        compliance: ['GDPR', 'ISO 27001', 'PCI DSS'],
+        category: 'Popular',
+        serviceType: 'SaaS',
+        pricingModel: 'Subscription'
+    },
+    {
+        id: '3',
+        title: 'Diagnostic Imaging AI',
+        description: 'Medical imaging analysis platform for radiology with 96% detection accuracy for common conditions.',
+        tags: ['Healthcare', 'PaaS'],
+        price: '49,500 NOK/mo',
+        compliance: ['GDPR', 'HIPAA', 'ISO 27001'],
+        category: 'New',
+        serviceType: 'PaaS',
+        pricingModel: 'Subscription'
+    },
+    {
+        id: '4',
+        title: 'Energy Grid Predictor',
+        description: 'Forecasts energy demand and optimizes grid distribution with deep learning, reducing waste by up to 15%.',
+        tags: ['Energy', 'PaaS'],
+        price: '42,300 NOK/mo',
+        compliance: ['GDPR', 'ISO 27001'],
+        category: 'New',
+        serviceType: 'PaaS',
+        pricingModel: 'Usage-based'
+    },
+    {
+        id: '5',
+        title: '5G Network Optimizer',
+        description: 'Real-time optimization of 5G network resources using AI, reducing latency by 40% in field tests.',
+        tags: ['Telecom', 'IaaS'],
+        price: '32,500 NOK/mo',
+        compliance: ['GDPR', 'ISO 27001'],
+        category: 'Best Value',
+        serviceType: 'IaaS',
+        pricingModel: 'Usage-based'
+    },
+    {
+        id: '6',
+        title: 'Retail Personalizer',
+        description: 'Personalized product recommendations that increase average order value by 22% through deep learning.',
+        tags: ['Retail', 'SaaS'],
+        price: '15,900 NOK/mo',
+        compliance: ['GDPR'],
+        category: 'Best Value',
+        serviceType: 'SaaS',
+        pricingModel: 'Subscription'
     }
-    return images[category as keyof typeof images] || images.Compute
-}
+])
 
-onMounted(async () => {
-    products.value = await apiService.getProducts()
+const filters = ref({
+    category: 'All',
+    serviceType: 'All',
+    pricingModel: 'All'
 })
 
-const handlePurchase = (product: Product) => {
-    if (authStore.isLoggedIn) {
-        alert('Purchase action simulated!')
-        console.log('Purchase initiated for:', product.name)
-    } else {
-        router.push({ path: '/login', query: { redirect: route.fullPath } })
-    }
+const filteredSolutions = computed(() => {
+    return aiSolutions.value.filter(solution => {
+        const categoryMatch = filters.value.category === 'All' || solution.tags.includes(filters.value.category)
+        const serviceTypeMatch = filters.value.serviceType === 'All' || solution.serviceType === filters.value.serviceType
+        const pricingMatch = filters.value.pricingModel === 'All' || solution.pricingModel === filters.value.pricingModel
+
+        return categoryMatch && serviceTypeMatch && pricingMatch
+    })
+})
+
+const popularSolutions = computed(() => filteredSolutions.value.filter(s => s.category === 'Popular'))
+const newSolutions = computed(() => filteredSolutions.value.filter(s => s.category === 'New'))
+const bestValueSolutions = computed(() => filteredSolutions.value.filter(s => s.category === 'Best Value'))
+
+const applyFilters = () => {
+    // Filter logic is handled by computed properties
+    console.log('Filters applied:', filters.value)
 }
+
+onMounted(() => {
+    console.log('Marketplace loaded with', aiSolutions.value.length, 'solutions')
+})
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables';
+@import '@/assets/scss/_variables.scss';
 
-.purchase-view {
-    min-height: 100vh;
-    padding: 2rem 1rem;
-    background: #fafbfc;
+.marketplace-view {
+    color: #1e293b;
+    padding: 0;
 }
 
-.container {
-    max-width: 1200px;
+.marketplace-container {
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 2rem;
 }
 
-.purchase-card {
-    background: $brand-white;
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e7eb;
+.marketplace-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-top: 1rem;
 
-    h2 {
-        color: $brand-blue;
-        margin-bottom: 1rem;
+    h1 {
         font-size: 2.5rem;
-        text-align: center;
         font-weight: 700;
+        margin-bottom: 1rem;
+        color: $primary-blue;
+        background: linear-gradient(135deg, $primary-blue 0%, #1e40af 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
-    >p {
+    .results-count {
+        color: #64748b;
         font-size: 1.1rem;
-        color: #6b7280;
-        margin-bottom: 3rem;
-        text-align: center;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
 
-.product-grid {
+.marketplace-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
 
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
+// Filters Sidebar
+.filters-sidebar {
+    .filters-section {
+        background: $white;
+        border-radius: 12px;
+        padding: 2rem;
+        border: 1px solid $border-grey;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: $text-dark;
+        }
+    }
+
+    .filter-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: $text-dark;
+            font-size: 0.9rem;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.75rem;
+            background: $white;
+            border: 1px solid $border-grey;
+            border-radius: 8px;
+            color: $text-dark;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:focus {
+                outline: none;
+                border-color: $primary-blue;
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            }
+
+            option {
+                background: $white;
+                color: $text-dark;
+            }
+        }
+    }
+
+    .apply-filters-btn {
+        width: 100%;
+        padding: 0.75rem;
+        background: $primary-blue;
+        color: $white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: darken($primary-blue, 10%);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+    }
+}
+
+// Solutions Grid
+.solutions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.solutions-column {
+    .column-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: $text-dark;
+        text-align: center;
+    }
+
+    .solution-cards {
+        display: flex;
+        flex-direction: column;
         gap: 1.5rem;
     }
 }
 
-.product-item {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.product-card {
-    background: $brand-white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+.solution-card {
+    background: $white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid $border-grey;
     transition: all 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     &:hover {
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        transform: translateY(-5px);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-color: $primary-blue;
     }
-}
 
-.product-header {
-    position: relative;
-    height: 200px;
-    overflow: hidden;
+    .solution-header {
+        margin-bottom: 1.5rem;
 
-    .product-image {
-        width: 100%;
-        height: 100%;
+        .solution-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            .tag {
+                background: #e2e8f0;
+                color: #475569;
+                padding: 0.25rem 0.75rem;
+                border-radius: 20px;
+                font-size: 0.75rem;
+                font-weight: 500;
+            }
+        }
+
+        .solution-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: $text-dark;
+            line-height: 1.4;
+        }
+
+        .solution-description {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
     }
 
-    .category-badge {
-        position: absolute;
-        top: 1rem;
-        left: 1rem;
-        background: rgba(0, 169, 224, 0.9);
-        color: white;
-        padding: 0.5rem 1rem;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 600;
-        backdrop-filter: blur(10px);
-    }
-}
+    .solution-footer {
+        .solution-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
 
-.product-content {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-
-    h3 {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 0.75rem;
-        color: $dark-grey-text;
-    }
-
-    p {
-        color: #6b7280;
-        line-height: 1.6;
-        margin-bottom: 1.5rem;
-        flex: 1;
-    }
-
-    .product-features {
-        margin-bottom: 1.5rem;
-
-        .feature {
+        .solution-compliance {
             display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
 
-            .checkmark {
-                color: #10b981;
-                font-weight: bold;
-                margin-right: 0.5rem;
+            .compliance-badge {
+                background: #dbeafe;
+                color: #1e40af;
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+                font-size: 0.7rem;
+                font-weight: 500;
+            }
+        }
+
+        .solution-actions {
+            display: flex;
+            gap: 0.75rem;
+
+            .action-btn {
+                flex: 1;
+                padding: 0.75rem;
+                border-radius: 8px;
+                font-weight: 600;
+                font-size: 0.85rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                border: none;
+
+                &.primary {
+                    background: $primary-blue;
+                    color: $white;
+
+                    &:hover {
+                        background: darken($primary-blue, 10%);
+                        transform: translateY(-1px);
+                        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+                    }
+                }
+
+                &.secondary {
+                    background: transparent;
+                    color: $text-dark;
+                    border: 1px solid $border-grey;
+
+                    &:hover {
+                        background: #f8fafc;
+                        border-color: $primary-blue;
+                        color: $primary-blue;
+                    }
+                }
             }
         }
     }
 }
 
-.purchase-actions {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    border-top: 1px solid #e5e7eb;
+// Pagination
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid $border-grey;
 
-    .pricing-info {
-        text-align: center;
-        margin-bottom: 1rem;
-
-        .price-display {
-            display: block;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: $brand-blue;
-            margin-bottom: 0.25rem;
-        }
-
-        .price-note {
-            font-size: 0.85rem;
-            color: #6b7280;
-        }
+    .pagination-info {
+        color: #64748b;
+        font-size: 0.9rem;
     }
 
-    .purchase-btn {
-        background: $brand-blue;
-        color: $brand-white;
-        border: none;
-        border-radius: 25px;
-        padding: 0.75rem 2rem;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        width: 100%;
+    .pagination-controls {
+        display: flex;
+        gap: 0.5rem;
 
-        &:hover {
-            background: darken($brand-blue, 8%);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 169, 224, 0.3);
-        }
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            background: $white;
+            border: 1px solid $border-grey;
+            color: $text-dark;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
 
-        &:active {
-            transform: translateY(0);
+            &:hover:not(:disabled) {
+                background: #f8fafc;
+                border-color: $primary-blue;
+                color: $primary-blue;
+            }
+
+            &.active {
+                background: $primary-blue;
+                border-color: $primary-blue;
+                color: $white;
+            }
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
         }
     }
 }
 
-.loading {
-    text-align: center;
-    padding: 4rem 2rem;
-    color: #6b7280;
-    font-size: 1.1rem;
-    font-style: italic;
+// Responsive Design
+@media (max-width: 1200px) {
+    .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .purchase-card {
-        padding: 2rem 1.5rem;
-
-        h2 {
-            font-size: 2rem;
-        }
+    .marketplace-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .product-grid {
+    .solutions-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+    }
+
+    .marketplace-header h1 {
+        font-size: 2rem;
+    }
+
+    .pagination {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
     }
 }
 
 @media (max-width: 480px) {
-    .purchase-view {
-        padding: 1rem 0.5rem;
+    .marketplace-container {
+        padding: 0 1rem;
     }
 
-    .purchase-card {
-        padding: 1.5rem 1rem;
+    .marketplace-header h1 {
+        font-size: 1.75rem;
+    }
 
-        h2 {
-            font-size: 1.75rem;
-        }
+    .solution-card {
+        padding: 1rem;
+    }
+
+    .solution-actions {
+        flex-direction: column;
     }
 }
 </style>

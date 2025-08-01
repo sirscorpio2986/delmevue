@@ -1,0 +1,7 @@
+[
+  { "sku": "H100 Full", "vram": "80GB", "onDemand": "650 NOK/hr", "monthly": "38,000 NOK/mo", "availability": "High" },
+  { "sku": "H100 Slice", "vram": "10GB", "onDemand": "95 NOK/hr", "monthly": "5,500 NOK/mo", "availability": "High" },
+  { "sku": "L40S Full", "vram": "48GB", "onDemand": "320 NOK/hr", "monthly": "19,000 NOK/mo", "availability": "Medium" },
+  { "sku": "V100 Full", "vram": "32GB", "onDemand": "220 NOK/hr", "monthly": "10,000 NOK/mo", "availability": "High" },
+  { "sku": "A100 Full", "vram": "80GB", "onDemand": "450 NOK/hr", "monthly": "25,000 NOK/mo", "availability": "Medium" }
+] 

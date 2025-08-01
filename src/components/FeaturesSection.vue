@@ -5,110 +5,34 @@
             <p class="section-subtitle">We have many different AI services to choose from. Compare and find the best
                 solutions for your enterprise needs.</p>
 
-            <ul class="card-deck__cards container-fluid container-lg d-flex gap-medium gap-md-large p-0">
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
-                        <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="GPU processing unit visualization"></div>
-                        <div
-                            class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">GPU-as-a-Service</h3>
-                            <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Elastic, multi-tenant, sovereign EU GPU clusters with on-demand, reserved & dedicated
-                                    options. Support for NVIDIA H100, L40S, and MI300 (roadmap).</p>
-                            </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Explore Platform">Explore</a>
-                        </div>
-                    </article>
-                </li>
+            <div v-if="loading" class="loading-state">
+                <p>Loading platform services...</p>
+            </div>
 
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
+            <ul v-else class="card-deck__cards container-fluid container-lg d-flex gap-medium gap-md-large p-0">
+                <li v-for="service in platformServices" :key="service.id" class="w-100">
+                    <article class="tn-card d-flex flex-column h-100" :style="{
+                        '--img-url': `url('${service.imageUrl}')`,
+                        '--img-url-1x': `url('${service.imageUrl}') 1x`,
+                        '--img-url-2x': `url('${service.imageUrl}') 2x`,
+                        '--img-url-mobile': `url('${service.imageUrl}')`,
+                        '--img-url-desktop': `url('${service.imageUrl}')`
+                    }">
                         <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="Model catalog and registry visualization"></div>
-                        <div
-                            class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">Model Catalog & Registry
-                            </h3>
-                            <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Curated, validated models with provenance tracking, versioning, bias & drift checks,
-                                    and enterprise distribution controls.</p>
-                            </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Browse Models">Browse models</a>
+                            :aria-label="service.ariaLabel">
                         </div>
-                    </article>
-                </li>
-
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
-                        <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="Secure AI laboratory workspace"></div>
                         <div
                             class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">Secure AI Lab</h3>
+                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">{{ service.title }}</h3>
                             <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Isolated experiment workspaces with governed data access, notebook runtimes, lineage
-                                    capture, and SOC2/HIPAA-aligned controls.</p>
+                                <p>{{ service.description }}</p>
                             </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Spin up Lab">Spin up Lab</a>
-                        </div>
-                    </article>
-                </li>
-
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
-                        <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="AI Studio applications workspace"></div>
-                        <div
-                            class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">AI Studio Apps</h3>
-                            <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Low-code / pro-code environment to assemble RAG apps, copilots, dashboards, and
-                                    vertical
-                                    accelerators with enterprise SSO & audit.</p>
-                            </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Build an App">Build an App</a>
-                        </div>
-                    </article>
-                </li>
-
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
-                        <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="LLM API access and token management"></div>
-                        <div
-                            class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">LLM API Access</h3>
-                            <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Central token brokering for internal & 3rd-party LLMs with usage policies, cost caps,
-                                    key
-                                    rotation, and audit-ready logging.</p>
-                            </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Manage Tokens">Manage Tokens</a>
-                        </div>
-                    </article>
-                </li>
-
-                <li class="w-100">
-                    <article class="tn-card d-flex flex-column h-100">
-                        <div class="tn-card__image border border-bottom-0 border-primary" role="img"
-                            aria-label="Data fabric and governance infrastructure"></div>
-                        <div
-                            class="tn-card__content d-flex flex-column flex-grow-1 border border-primary bg-white border-top-0">
-                            <h3 class="font-zebra mb-xsmall mt-none mb-lg-medium text-primary">Data Fabric & Governance
-                            </h3>
-                            <div class="tnse-editorial font-mango mb-large mb-lg-xlarge text-secondary">
-                                <p>Unified data ingestion, transformation, and access layers with sensitive data
-                                    masking,
-                                    encryption, and immutable audit logs.</p>
-                            </div>
-                            <a class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
-                                href="#" title="Setup Fabric">Setup Fabric</a>
+                            <button
+                                class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
+                                :title="service.buttonTitle"
+                                @click="service.buttonText === 'Explore' ? scrollToServices() : null">
+                                {{ service.buttonText }}
+                            </button>
                         </div>
                     </article>
                 </li>
@@ -118,79 +42,142 @@
 </template>
 
 <script setup lang="ts">
-// No additional logic needed for static feature cards
+import { ref, onMounted } from 'vue'
+import { apiService } from '@/services/apiService'
+import type { PlatformService } from '@/types/platformService'
+
+const platformServices = ref<PlatformService[]>([])
+const loading = ref(true)
+
+const scrollToServices = () => {
+    const servicesSection = document.getElementById('service-offerings');
+    if (servicesSection) {
+        servicesSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+
+        // Emit an event to switch to GPU services tab
+        setTimeout(() => {
+            window.dispatchEvent(new CustomEvent('switchToGpuServices'));
+        }, 500);
+    }
+};
+
+const loadPlatformServices = async () => {
+    try {
+        loading.value = true
+        const services = await apiService.getPlatformServices()
+        platformServices.value = services
+    } catch (error) {
+        console.error('Failed to load platform services:', error)
+    } finally {
+        loading.value = false
+    }
+}
+
+onMounted(() => {
+    loadPlatformServices()
+})
 </script>
 
 <style lang="scss" scoped>
 @import '@/assets/scss/variables';
+
+:root {
+    --bs-breakpoint-xxxs: 0;
+    --bs-breakpoint-xxs: 360px;
+    --bs-breakpoint-xs: 480px;
+    --bs-breakpoint-sm: 576px;
+    --bs-breakpoint-md: 768px;
+    --bs-breakpoint-lg: 992px;
+    --bs-breakpoint-xl: 1200px;
+    --bs-border-radius: 0.375rem;
+    --bs-border-radius-sm: 0.375rem;
+    --bs-border-radius-lg: 1.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-2xl: 2rem;
+    --bs-border-radius-pill: 625rem;
+}
 
 .features-section {
     padding: 6rem 0;
     background: #fafbfc;
 
     .container {
-        max-width: 1200px;
+        max-width: 100%;
         margin: 0 auto;
-        padding: 0 2rem;
+        padding: 0;
     }
 
     h2 {
         text-align: center;
-        font-size: 1.25rem;
+        font-size: 2.25rem;
         line-height: 1.4;
-        margin-bottom: 1rem;
+        margin: 0 0 1rem 0;
         color: $brand-blue;
         font-weight: 700;
         font-family: $font-family-base;
-        margin: 0;
-        padding: 0;
-        border: 0;
-        box-sizing: border-box;
-        display: block;
-        float: none;
-        position: static;
-        z-index: auto;
     }
 
     .section-subtitle {
         text-align: center;
         font-size: 1.125rem;
         color: $text-light;
-        margin-bottom: 4rem;
+        margin: 0 auto 4rem auto;
         max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
         font-family: $font-family-base;
+        line-height: 1.6;
     }
 
-    // Telenor card deck styling
-    .card-deck__cards {
-        overflow-x: auto;
-        scrollbar-width: none;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+    .loading-state {
+        text-align: center;
+        padding: 3rem 0;
+        color: $text-light;
+        font-family: $font-family-base;
 
-        @media (min-width: 768px) {
-            gap: 1.5rem;
+        p {
+            margin: 0;
+            font-size: 1rem;
         }
     }
 
+    // Responsive card deck styling - spans full width
+    .card-deck__cards {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        padding: 1rem;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        @media (min-width: 768px) {
+            padding: 1.5rem;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 1200px) {
+            padding: 2rem;
+            gap: 2rem;
+        }
+    }
+
+    // Container overrides for full width
     .container-fluid {
-        --bs-gutter-x: 1.5rem;
-        --bs-gutter-y: 0;
         width: 100%;
-        padding-right: calc(var(--bs-gutter-x)*.5);
-        padding-left: calc(var(--bs-gutter-x)*.5);
-        margin-right: auto;
-        margin-left: auto;
+        padding: 0;
+        margin: 0;
     }
 
     .container-lg {
-        max-width: 1170px;
+        max-width: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
     }
 
     .d-flex {
@@ -211,134 +198,70 @@
         padding: 0 !important;
     }
 
+    // Responsive card grid
     .w-100 {
-        width: 100% !important;
-        flex: 1;
-        min-width: 300px;
+        width: 100%;
+        flex: 0 0 100%;
+        min-width: 280px;
 
-        @media (min-width: 768px) {
-            flex: 0 0 calc(50% - 0.75rem); // 2 columns on medium screens
+        // Mobile: 1 column
+        @media (max-width: 767px) {
+            flex: 0 0 100%;
         }
 
+        // Tablet: 2 columns
+        @media (min-width: 768px) and (max-width: 1199px) {
+            flex: 0 0 calc(50% - 0.75rem);
+        }
+
+        // Desktop: 3 columns
         @media (min-width: 1200px) {
-            flex: 0 0 calc(33.333% - 1rem); // 3 columns on large screens
+            flex: 0 0 calc(33.333% - 1.33rem);
         }
     }
 
-    // Telenor card styling - EXACT match to screenshot
+    // Telenor card styling - EXACT match to Desired Card
     .tn-card {
         display: flex;
         flex-direction: column;
         height: 100%;
-        border-radius: 0.375rem;
         overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
-        background: white;
-
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
+        background: transparent;
     }
 
     .tn-card__image {
-        height: 200px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        position: relative;
-        border-top-left-radius: 0.375rem;
-        border-top-right-radius: 0.375rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        aspect-ratio: 16/9;
+        background-image: var(--img-url);
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
+        position: relative;
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid $brand-blue;
 
-        &::before {
-            content: '';
-            width: 80px;
-            height: 80px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.9;
-            position: relative;
-            z-index: 2;
+        // Responsive image handling like Desired Card
+        @media (min-width: 768px) {
+            background-image: var(--img-url-desktop);
         }
-    }
-
-    // Different images and icons for each card - Updated to match h3 titles
-    .tn-card:nth-child(1) .tn-card__image {
-        /* GPU-as-a-Service: GPU hardware/server racks */
-        background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(1) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.236l7.5 4.236v7.056L12 17.764l-7.5-4.236V8.472L12 4.236z'/%3E%3Cpath d='M12 6l-4 2.5v3L12 14l4-2.5v-3L12 6z'/%3E%3C/svg%3E");
-    }
-
-    .tn-card:nth-child(2) .tn-card__image {
-        /* Model Catalog & Registry: Data models, code, or registry */
-        background-image: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(2) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z'/%3E%3C/svg%3E");
-    }
-
-    .tn-card:nth-child(3) .tn-card__image {
-        /* Secure AI Lab: Security, padlock, or lab */
-        background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(3) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
-    }
-
-    .tn-card:nth-child(4) .tn-card__image {
-        /* AI Studio Apps: App development, dashboard, or creative workspace */
-        background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(4) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M9 3v1H4v2h1v3a4 4 0 0 0 4 4h1a2 2 0 0 1 2 2v3h-1a2 2 0 0 1-2-2v-1H4v-2h5v-1a2 2 0 0 0-2-2H6a2 2 0 0 1-2-2V5H3V3h6z'/%3E%3C/svg%3E");
-    }
-
-    .tn-card:nth-child(5) .tn-card__image {
-        /* LLM API Access: API, cloud, or code integration */
-        background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(5) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
-    }
-
-    .tn-card:nth-child(6) .tn-card__image {
-        /* Data Fabric & Governance: Data network, compliance, or governance */
-        background-image: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80');
-    }
-
-    .tn-card:nth-child(6) .tn-card__image::before {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M3 3v18h18V3H3zm16 16H5V5h14v14z'/%3E%3Cpath d='M7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z'/%3E%3C/svg%3E");
     }
 
     .tn-card__content {
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        background: white;
+        background: transparent;
         padding: 1.5rem;
-        border-bottom-left-radius: 0.375rem;
-        border-bottom-right-radius: 0.375rem;
+        border-bottom-left-radius: 1.5rem;
+        border-bottom-right-radius: 1.5rem;
     }
 
     .border {
         border: 1px solid #dee2e6 !important;
-    }
-
-    .border-primary {
-        border-color: $brand-blue !important;
     }
 
     .border-bottom-0 {
@@ -350,7 +273,7 @@
     }
 
     .bg-white {
-        background-color: white !important;
+        background-color: transparent !important;
     }
 
     .flex-column {
@@ -371,24 +294,29 @@
         font-weight: 700;
         font-size: 1.25rem;
         line-height: 1.4;
-        color: $brand-blue;
-        margin: 0;
+        color: $brand-black;
+        margin: 0 0 0.5rem 0;
     }
 
     .font-mango {
         font-family: $font-family-base;
         font-size: 1rem;
-        line-height: 1.4rem;
+        line-height: 1.6;
         font-weight: 400;
-        color: $text-light;
+        color: $dark-grey-text;
+        margin: 0 0 2rem 0;
+
+        p {
+            margin: 0;
+        }
     }
 
     .text-primary {
-        color: $brand-blue !important;
+        color: $brand-black !important;
     }
 
     .text-secondary {
-        color: $text-light !important;
+        color: $dark-grey-text !important;
     }
 
     // Spacing utilities - EXACT Telenor spacing
@@ -437,13 +365,6 @@
         display: inline-block;
         transition: all 0.3s ease;
         cursor: pointer;
-
-        &:hover {
-            background: darken($brand-blue, 10%);
-            transform: translateY(-2px);
-            text-decoration: none;
-            color: white;
-        }
     }
 
     .fs-button-small {
@@ -460,15 +381,6 @@
         font-weight: 500;
     }
 
-    // Responsive design
-    @media (max-width: 767px) {
-        .card-deck__cards {
-            flex-direction: column;
-        }
 
-        .w-100 {
-            flex: 0 0 100%;
-        }
-    }
 }
 </style>

@@ -1,0 +1,6 @@
+{
+  "gpuHours": { "used": 847, "total": 1000, "unit": "Hours" },
+  "storage": { "used": 1.2, "total": 2, "unit": "TB" },
+  "dataEgress": { "used": 485, "total": 1000, "unit": "GB" },
+  "thisMonthSpend": { "amount": 1247, "currency": "€", "change": "+7%" }
+} 

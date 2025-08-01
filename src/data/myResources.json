@@ -1,0 +1,34 @@
+[
+  {
+    "id": "gpu-cluster-01",
+    "name": "Research Cluster",
+    "type": "GPU Cluster",
+    "status": "Running",
+    "utilization": 87,
+    "icon": "cluster"
+  },
+  {
+    "id": "ml-lab-01",
+    "name": "ML Training Lab",
+    "type": "AI Workstation",
+    "status": "Running",
+    "utilization": 65,
+    "icon": "lab"
+  },
+  {
+    "id": "storage-01",
+    "name": "Dataset Storage",
+    "type": "Object Storage",
+    "status": "Active",
+    "utilization": 72,
+    "icon": "storage"
+  },
+  {
+    "id": "endpoint-01",
+    "name": "Vision API",
+    "type": "Model Endpoint",
+    "status": "Active",
+    "utilization": 34,
+    "icon": "endpoint"
+  }
+] 

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardView from '../views/DashboardView.vue'
+import OverviewView from '../views/OverviewView.vue'
 import { useAuthStore } from '@/store/authStore'
 
 const router = createRouter({
@@ -29,10 +30,9 @@ const router = createRouter({
       component: () => import('../views/LoginView.vue'),
     },
     {
-      path: '/purchase',
-      name: 'purchase',
-      component: () => import('../views/PurchaseView.vue'),
-      meta: { requiresAuth: true },
+      path: '/contact',
+      name: 'contact',
+      component: () => import('../views/ContactView.vue'),
     },
     {
       path: '/category/:id',
@@ -48,18 +48,33 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'usage',
-          component: () => import('../views/UsageView.vue'),
+          name: 'overview',
+          component: OverviewView,
         },
         {
-          path: 'billing',
-          name: 'billing',
-          component: () => import('../views/BillingView.vue'),
+          path: 'resources',
+          name: 'resources',
+          component: () => import('../views/MyResourcesView.vue'),
+        },
+        {
+          path: 'usage',
+          name: 'usage',
+          component: () => import('../views/UsageAndBillingView.vue'),
+        },
+        {
+          path: 'marketplace',
+          name: 'marketplace',
+          component: () => import('../views/PurchaseView.vue'),
         },
         {
           path: 'support',
           name: 'support',
           component: () => import('../views/SupportView.vue'),
+        },
+        {
+          path: 'admin',
+          name: 'admin',
+          component: () => import('../views/AdminSettingsView.vue'),
         },
       ],
     },

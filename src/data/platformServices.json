@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "GPU-as-a-Service",
+    "description": "Elastic, multi-tenant, sovereign EU GPU clusters with on-demand, reserved & dedicated options. Support for NVIDIA H100, L40S, and MI300 (roadmap).",
+    "imageUrl": "https://www.techpowerup.com/img/3lDDkRINNezgwwSW.jpg",
+    "buttonText": "Explore",
+    "buttonTitle": "Explore Platform",
+    "ariaLabel": "GPU processing unit visualization"
+  },
+  {
+    "id": 2,
+    "title": "Model Catalog & Registry",
+    "description": "Curated, validated models with provenance tracking, versioning, bias & drift checks, and enterprise distribution controls.",
+    "imageUrl": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "buttonText": "Browse models",
+    "buttonTitle": "Browse Models",
+    "ariaLabel": "Model catalog and registry visualization"
+  },
+  {
+    "id": 3,
+    "title": "Secure AI Lab",
+    "description": "Isolated experiment workspaces with governed data access, notebook runtimes, lineage capture, and SOC2/HIPAA-aligned controls.",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT90H-6uY6q6SUPI2aS--Z8N4NewgK-12yvEw&s",
+    "buttonText": "Spin up Lab",
+    "buttonTitle": "Spin up Lab",
+    "ariaLabel": "Secure AI laboratory workspace"
+  },
+  {
+    "id": 4,
+    "title": "AI Studio Apps",
+    "description": "Low-code / pro-code environment to assemble RAG apps, copilots, dashboards, and vertical accelerators with enterprise SSO & audit.",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUGbOwG2M8pKU5qMBf4A3_53Ejv7qIjtOh1w&s",
+    "buttonText": "Build an App",
+    "buttonTitle": "Build an App",
+    "ariaLabel": "AI Studio applications workspace"
+  },
+  {
+    "id": 5,
+    "title": "LLM API Access",
+    "description": "Central token brokering for internal & 3rd-party LLMs with usage policies, cost caps, key rotation, and audit-ready logging.",
+    "imageUrl": "https://miro.medium.com/v2/resize:fit:1400/0*-Y_Ceb5TxDsWi65K.png",
+    "buttonText": "Manage Tokens",
+    "buttonTitle": "Manage Tokens",
+    "ariaLabel": "LLM API access and token management"
+  },
+  {
+    "id": 6,
+    "title": "Data Fabric & Governance",
+    "description": "Unified data ingestion, transformation, and access layers with sensitive data masking, encryption, and immutable audit logs.",
+    "imageUrl": "https://www.networkworld.com/wp-content/uploads/2025/06/4007018-0-54909100-1750064666-iStock-2157709105.jpg?quality=50&strip=all",
+    "buttonText": "Setup Fabric",
+    "buttonTitle": "Setup Fabric",
+    "ariaLabel": "Data fabric and governance infrastructure"
+  }
+] 

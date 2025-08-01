@@ -1,0 +1,27 @@
+{
+  "alerts": [
+    { "type": "warning", "message": "High Usage Alert: Your GPU usage for 'Model Training' is nearing 80% of your monthly quota." },
+    { "type": "info", "message": "Billing Period Ends Soon: Your current billing cycle closes in 5 days." }
+  ],
+  "stats": {
+    "currentMonthSpent": { "value": 12450.75, "currency": "€", "change": "+12.5%" },
+    "gpuHoursUsed": { "value": 8200, "unit": "hrs", "change": "-2.3%" },
+    "apiCalls": { "value": 1.2, "unit": "M", "change": "+20%" },
+    "dataStored": { "value": 5.8, "unit": "TB", "change": "-4.7%" }
+  },
+  "spendByService": {
+    "labels": ["GPU as a Service", "AI/ML Model Hub", "LLM API Gateway", "Data Storage"],
+    "data": [65, 15, 12, 8]
+  },
+  "topConsumedResources": [
+    { "name": "NVIDIA H100 GPU", "value": "4,500 hrs" },
+    { "name": "Custom ML Model A", "value": "100,000 inferences" },
+    { "name": "LLM GPT-4 Access", "value": "800K Tokens" },
+    { "name": "Object Storage Tier 1", "value": "3 TB" },
+    { "name": "Managed Database", "value": "2 TB" }
+  ],
+  "dailySpendTrend": {
+    "labels": ["July 1", "July 5", "July 10", "July 15", "July 20", "July 25", "July 30"],
+    "data": [320, 480, 400, 520, 550, 680, 700]
+  }
+} 

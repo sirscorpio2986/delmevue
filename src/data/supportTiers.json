@@ -1,0 +1,11 @@
+{
+  "headers": ["Feature", "Basic", "Pro", "Enterprise"],
+  "rows": [
+    { "feature": "Support Channels", "basic": "Email/Ticket", "pro": "Email, Chat, Scheduled Calls", "enterprise": "24x7 Phone, Dedicated TAM" },
+    { "feature": "Response SLA", "basic": "48 hours", "pro": "24x5, 4 hours", "enterprise": "24x7, 1 hour for P1" },
+    { "feature": "Included With", "basic": "Dev-Lite/Plus", "pro": "AI-TeamS", "enterprise": "Enterprise" },
+    { "feature": "Onboarding", "basic": "Self-service", "pro": "Guided onboarding", "enterprise": "Custom migration plan" },
+    { "feature": "Compliance Support", "basic": "Documentation", "pro": "Consultation", "enterprise": "Full audits & attestations" },
+    { "feature": "Pricing", "basic": "Included", "pro": "Included", "enterprise": "Custom" }
+  ]
+} 
