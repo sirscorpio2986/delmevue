@@ -34,8 +34,8 @@
                             Scale your AI infrastructure with up to 50 users and get better pricing the more you grow.
                         </p>
                         <div class="card-price">
-                            <span class="price-amount">$2,299/month</span>
-                            <span class="price-period">for 12 months, then $2,499/month.</span>
+                            <span class="price-amount">NOK 24,999/month</span>
+                            <span class="price-period">for 12 months, then NOK 26,999/month</span>
                         </div>
                         <button class="card-button family-btn">Add extra users →</button>
                     </div>
@@ -67,11 +67,11 @@
                         <div class="card-pricing">
                             <div class="original-price">
                                 <span class="price-label">Price with commitment discount</span>
-                                <span class="strikethrough-price">$7,199/month</span>
+                                <span class="strikethrough-price">NOK 78,999/month</span>
                             </div>
                             <div class="current-price">
-                                <span class="price-amount discounted">$5,999/month</span>
-                                <span class="price-period">For 12 months then $7,199/month</span>
+                                <span class="price-amount discounted">NOK 64,999/month</span>
+                                <span class="price-period">For 12 months, then NOK 78,999/month</span>
                             </div>
                         </div>
                         <button class="card-button primary-btn">Select</button>
@@ -105,11 +105,11 @@
                         <div class="card-pricing">
                             <div class="original-price">
                                 <span class="price-label">Price with commitment discount</span>
-                                <span class="strikethrough-price">$5,699/month</span>
+                                <span class="strikethrough-price">NOK 61,999/month</span>
                             </div>
                             <div class="current-price">
-                                <span class="price-amount discounted">$4,999/month</span>
-                                <span class="price-period">For 12 months then $5,699/month</span>
+                                <span class="price-amount discounted">NOK 54,999/month</span>
+                                <span class="price-period">For 12 months, then NOK 61,999/month</span>
                             </div>
                         </div>
                         <button class="card-button primary-btn">Select</button>
@@ -141,7 +141,7 @@
                         </ul>
                         <div class="card-pricing">
                             <div class="current-price">
-                                <span class="price-amount">$4,499/month</span>
+                                <span class="price-amount">NOK 48,999/month</span>
                             </div>
                         </div>
                         <button class="card-button primary-btn">Select</button>
@@ -165,7 +165,7 @@ const isBindingEnabled = ref(true);
 
 .offerings-section {
     padding: 4rem 0;
-    background-color: #f8fafc;
+    background-color: $background-grey;
 }
 
 .container {
@@ -185,7 +185,7 @@ const isBindingEnabled = ref(true);
     .control-question {
         font-size: 1.25rem;
         font-weight: 600;
-        color: #1f2937;
+        color: $text-dark;
         margin-bottom: 1rem;
     }
 
@@ -198,29 +198,29 @@ const isBindingEnabled = ref(true);
         .number-btn {
             width: 60px;
             height: 50px;
-            border: 2px solid #e5e7eb;
-            background-color: white;
+            border: 2px solid $border-grey;
+            background-color: $white;
             border-radius: 8px;
             font-size: 1.125rem;
             font-weight: 600;
-            color: #374151;
+            color: $text-dark;
             cursor: pointer;
             transition: all 0.2s ease;
 
             &:hover {
-                border-color: #3b82f6;
-                color: #3b82f6;
+                border-color: $primary-blue;
+                color: $primary-blue;
             }
 
             &.active {
-                border-color: #3b82f6;
-                background-color: #3b82f6;
-                color: white;
+                border-color: $primary-blue;
+                background-color: $primary-blue;
+                color: $white;
             }
         }
 
         .show-more-link {
-            color: #3b82f6;
+            color: $primary-blue;
             text-decoration: none;
             font-weight: 500;
             margin-left: 1rem;
@@ -250,7 +250,7 @@ const isBindingEnabled = ref(true);
         display: block;
         width: 50px;
         height: 28px;
-        background-color: #e5e7eb;
+        background-color: $border-grey;
         border-radius: 14px;
         cursor: pointer;
         position: relative;
@@ -263,14 +263,14 @@ const isBindingEnabled = ref(true);
             left: 2px;
             width: 24px;
             height: 24px;
-            background-color: white;
+            background-color: $white;
             border-radius: 50%;
             transition: transform 0.2s ease;
         }
     }
 
     .toggle-input:checked+.toggle-label {
-        background-color: #3b82f6;
+        background-color: $primary-blue;
 
         &::after {
             transform: translateX(22px);
@@ -279,12 +279,12 @@ const isBindingEnabled = ref(true);
 
     .binding-text {
         font-size: 1rem;
-        color: #374151;
+        color: $text-dark;
         font-weight: 500;
     }
 
     .info-link {
-        color: #3b82f6;
+        color: $primary-blue;
         text-decoration: none;
         font-weight: 500;
 
@@ -298,20 +298,21 @@ const isBindingEnabled = ref(true);
 .subscription-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .subscription-card {
-    background-color: white;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: $white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid $border-grey;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     &:hover {
         transform: translateY(-4px);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-color: $primary-blue;
     }
 
     &.family-card {
@@ -366,19 +367,17 @@ const isBindingEnabled = ref(true);
         z-index: 1;
     }
 
-    .card-content {
-        padding: 1.5rem;
-    }
-
     .card-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #1f2937;
-        margin-bottom: 1rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+        color: $text-dark;
+        line-height: 1.4;
     }
 
     .card-description {
-        color: #6b7280;
+        color: #64748b;
+        font-size: 0.9rem;
         line-height: 1.6;
         margin-bottom: 1.5rem;
     }
@@ -394,10 +393,10 @@ const isBindingEnabled = ref(true);
             gap: 0.5rem;
             margin-bottom: 0.75rem;
             font-size: 0.9rem;
-            color: #374151;
+            color: $text-dark;
 
             .checkmark {
-                color: #10b981;
+                color: #059669;
                 font-weight: bold;
                 font-size: 1rem;
             }
@@ -419,13 +418,13 @@ const isBindingEnabled = ref(true);
             .price-label {
                 display: block;
                 font-size: 0.8rem;
-                color: #6b7280;
+                color: #64748b;
                 margin-bottom: 0.25rem;
             }
 
             .strikethrough-price {
                 text-decoration: line-through;
-                color: #6b7280;
+                color: #64748b;
                 font-size: 0.9rem;
             }
         }
@@ -433,9 +432,9 @@ const isBindingEnabled = ref(true);
         .current-price {
             .price-amount {
                 display: block;
-                font-size: 1.5rem;
+                font-size: 1.25rem;
                 font-weight: 700;
-                color: #1f2937;
+                color: #059669;
                 margin-bottom: 0.25rem;
 
                 &.discounted {
@@ -445,40 +444,42 @@ const isBindingEnabled = ref(true);
 
             .price-period {
                 font-size: 0.8rem;
-                color: #6b7280;
+                color: #64748b;
             }
         }
     }
 
     .card-button {
         width: 100%;
-        padding: 0.875rem 1.5rem;
-        border: none;
+        padding: 0.75rem;
         border-radius: 8px;
-        font-size: 1rem;
         font-weight: 600;
+        font-size: 0.85rem;
         cursor: pointer;
         transition: all 0.2s ease;
+        border: none;
         margin-bottom: 0.75rem;
 
         &.primary-btn {
-            background-color: #3b82f6;
-            color: white;
+            background: $primary-blue;
+            color: $white;
 
             &:hover {
-                background-color: #2563eb;
+                background: darken($primary-blue, 10%);
                 transform: translateY(-1px);
+                box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             }
         }
 
         &.family-btn {
-            background-color: #f3f4f6;
-            color: #3b82f6;
-            border: 2px solid #3b82f6;
+            background: transparent;
+            color: $text-dark;
+            border: 1px solid $border-grey;
 
             &:hover {
-                background-color: #3b82f6;
-                color: white;
+                background: #f8fafc;
+                border-color: $primary-blue;
+                color: $primary-blue;
             }
         }
     }
@@ -486,7 +487,7 @@ const isBindingEnabled = ref(true);
     .read-more-link {
         display: block;
         text-align: center;
-        color: #3b82f6;
+        color: $primary-blue;
         text-decoration: none;
         font-size: 0.9rem;
         font-weight: 500;
@@ -523,13 +524,7 @@ const isBindingEnabled = ref(true);
     }
 
     .subscription-card {
-        .card-content {
-            padding: 1.25rem;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-        }
+        padding: 1rem;
     }
 }
 
@@ -549,9 +544,7 @@ const isBindingEnabled = ref(true);
     }
 
     .subscription-card {
-        .card-content {
-            padding: 1rem;
-        }
+        padding: 1rem;
 
         .features-list .feature-item {
             font-size: 0.85rem;
