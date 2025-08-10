@@ -4,13 +4,13 @@
             <!-- Control Area -->
             <div class="control-area">
                 <div class="number-selection">
-                    <h3 class="control-question">How many users will access the infrastructure?</h3>
+                    <h3 class="control-question">{{ t('offerings.userQuestion') }}</h3>
                     <div class="number-buttons">
                         <button v-for="num in 5" :key="num" :class="{ active: selectedUsers === num }"
                             @click="selectedUsers = num" class="number-btn">
                             {{ num }}
                         </button>
-                        <a href="#" class="show-more-link">Show more</a>
+                        <a href="#" class="show-more-link">{{ t('common.showMore') }}</a>
                     </div>
                 </div>
 
@@ -19,8 +19,8 @@
                         <input type="checkbox" id="binding-toggle" v-model="isBindingEnabled" class="toggle-input">
                         <label for="binding-toggle" class="toggle-label"></label>
                     </div>
-                    <span class="binding-text">Commit to a 12-month contract for better pricing.</span>
-                    <a href="#" class="info-link">What does commitment mean?</a>
+                    <span class="binding-text">{{ t('offerings.commitmentText') }}</span>
+                    <a href="#" class="info-link">{{ t('offerings.commitmentInfo') }}</a>
                 </div>
             </div>
 
@@ -29,123 +29,125 @@
                 <!-- Enterprise Plan Card -->
                 <div class="subscription-card">
                     <div class="card-content">
-                        <h3 class="card-title">Enterprise Cluster</h3>
+                        <h3 class="card-title">{{ t('offerings.enterpriseCluster.title') }}</h3>
                         <p class="card-description">
-                            Scale your AI infrastructure with up to 50 users and get better pricing the more you grow.
+                            {{ t('offerings.enterpriseCluster.description') }}
                         </p>
                         <div class="card-price">
-                            <span class="price-amount">NOK 24,999/month</span>
-                            <span class="price-period">for 12 months, then NOK 26,999/month</span>
+                            <span class="price-amount">{{ t('offerings.enterpriseCluster.price') }}</span>
+                            <span class="price-period">{{ t('offerings.enterpriseCluster.pricePeriod') }}</span>
                         </div>
-                        <button class="card-button family-btn">Add extra users →</button>
+                        <button class="card-button family-btn">{{ t('common.addExtraUsers') }} →</button>
                     </div>
                 </div>
 
                 <!-- Premium GPU Card -->
                 <div class="subscription-card">
-                    <div class="campaign-badge">Campaign</div>
+                    <div class="campaign-badge">{{ t('offerings.campaign') }}</div>
                     <div class="card-content">
-                        <h3 class="card-title">Premium GPU Cluster</h3>
+                        <h3 class="card-title">{{ t('offerings.premiumGpu.title') }}</h3>
                         <ul class="features-list">
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                NVIDIA H100 GPUs up to 8x cards
+                                {{ t('offerings.premiumGpu.features.h100Gpus') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                Priority Support & Monitoring
+                                {{ t('offerings.premiumGpu.features.prioritySupport') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                Unlimited data transfer
+                                {{ t('offerings.premiumGpu.features.unlimitedTransfer') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                Advanced security features
+                                {{ t('offerings.premiumGpu.features.advancedSecurity') }}
                             </li>
                         </ul>
                         <div class="card-pricing">
                             <div class="original-price">
-                                <span class="price-label">Price with commitment discount</span>
-                                <span class="strikethrough-price">NOK 78,999/month</span>
+                                <span class="price-label">{{ t('offerings.premiumGpu.priceLabel') }}</span>
+                                <span class="strikethrough-price">{{ t('offerings.premiumGpu.originalPrice') }}</span>
                             </div>
                             <div class="current-price">
-                                <span class="price-amount discounted">NOK 64,999/month</span>
-                                <span class="price-period">For 12 months, then NOK 78,999/month</span>
+                                <span class="price-amount discounted">{{ t('offerings.premiumGpu.currentPrice')
+                                }}</span>
+                                <span class="price-period">{{ t('offerings.premiumGpu.pricePeriod') }}</span>
                             </div>
                         </div>
-                        <button class="card-button primary-btn">Select</button>
-                        <a href="#" class="read-more-link">Learn more</a>
+                        <button class="card-button primary-btn">{{ t('common.select') }}</button>
+                        <a href="#" class="read-more-link">{{ t('common.learnMore') }}</a>
                     </div>
                 </div>
 
                 <!-- Standard GPU Card -->
                 <div class="subscription-card">
-                    <div class="campaign-badge">Campaign</div>
+                    <div class="campaign-badge">{{ t('offerings.campaign') }}</div>
                     <div class="card-content">
-                        <h3 class="card-title">Standard GPU Cluster</h3>
+                        <h3 class="card-title">{{ t('offerings.standardGpu.title') }}</h3>
                         <ul class="features-list">
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                NVIDIA A100 GPUs up to 4x cards
+                                {{ t('offerings.standardGpu.features.a100Gpus') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                Standard Support
+                                {{ t('offerings.standardGpu.features.standardSupport') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                High-speed data transfer
+                                {{ t('offerings.standardGpu.features.highSpeedTransfer') }}
                             </li>
                             <li class="feature-item">
                                 <span class="cross">×</span>
-                                Advanced security features
+                                {{ t('offerings.standardGpu.features.advancedSecurity') }}
                             </li>
                         </ul>
                         <div class="card-pricing">
                             <div class="original-price">
-                                <span class="price-label">Price with commitment discount</span>
-                                <span class="strikethrough-price">NOK 61,999/month</span>
+                                <span class="price-label">{{ t('offerings.standardGpu.priceLabel') }}</span>
+                                <span class="strikethrough-price">{{ t('offerings.standardGpu.originalPrice') }}</span>
                             </div>
                             <div class="current-price">
-                                <span class="price-amount discounted">NOK 54,999/month</span>
-                                <span class="price-period">For 12 months, then NOK 61,999/month</span>
+                                <span class="price-amount discounted">{{ t('offerings.standardGpu.currentPrice')
+                                }}</span>
+                                <span class="price-period">{{ t('offerings.standardGpu.pricePeriod') }}</span>
                             </div>
                         </div>
-                        <button class="card-button primary-btn">Select</button>
-                        <a href="#" class="read-more-link">Learn more</a>
+                        <button class="card-button primary-btn">{{ t('common.select') }}</button>
+                        <a href="#" class="read-more-link">{{ t('common.learnMore') }}</a>
                     </div>
                 </div>
 
                 <!-- Basic GPU Card -->
                 <div class="subscription-card">
                     <div class="card-content">
-                        <h3 class="card-title">Basic GPU Cluster</h3>
+                        <h3 class="card-title">{{ t('offerings.basicGpu.title') }}</h3>
                         <ul class="features-list">
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                NVIDIA V100 GPUs up to 2x cards
+                                {{ t('offerings.basicGpu.features.v100Gpus') }}
                             </li>
                             <li class="feature-item">
                                 <span class="checkmark">✓</span>
-                                Basic Support
+                                {{ t('offerings.basicGpu.features.basicSupport') }}
                             </li>
                             <li class="feature-item">
                                 <span class="cross">×</span>
-                                High-speed data transfer
+                                {{ t('offerings.basicGpu.features.highSpeedTransfer') }}
                             </li>
                             <li class="feature-item">
                                 <span class="cross">×</span>
-                                Advanced security features
+                                {{ t('offerings.basicGpu.features.advancedSecurity') }}
                             </li>
                         </ul>
                         <div class="card-pricing">
                             <div class="current-price">
-                                <span class="price-amount">NOK 48,999/month</span>
+                                <span class="price-amount">{{ t('offerings.basicGpu.price') }}</span>
                             </div>
                         </div>
-                        <button class="card-button primary-btn">Select</button>
-                        <a href="#" class="read-more-link">Learn more</a>
+                        <button class="card-button primary-btn">{{ t('common.select') }}</button>
+                        <a href="#" class="read-more-link">{{ t('common.learnMore') }}</a>
                     </div>
                 </div>
             </div>
@@ -155,7 +157,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 
+const { t } = useI18n();
 const selectedUsers = ref(1);
 const isBindingEnabled = ref(true);
 </script>

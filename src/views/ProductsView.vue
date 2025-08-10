@@ -1,7 +1,7 @@
 <template>
     <main class="products-view">
         <div class="container">
-            <h1>Our Services</h1>
+            <h1>{{ t('products.title') }}</h1>
             <div class="product-grid">
                 <RouterLink v-for="product in products" :key="product.id"
                     :to="`/category/${product.category.toLowerCase()}`" class="product-link">
@@ -14,8 +14,11 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { apiService } from '@/services/apiService'
 import ProductCard from '@/components/ProductCard.vue'
+
+const { t } = useI18n()
 
 interface Product {
     id: string

@@ -2,9 +2,12 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import { useAuthStore } from '@/store/authStore';
+import { useI18n } from 'vue-i18n';
+import LanguageSwitcher from './LanguageSwitcher.vue';
 
 const authStore = useAuthStore();
 const searchQuery = ref('');
+const { t } = useI18n();
 
 const scrollToMarketplace = () => {
     const marketplaceSection = document.getElementById('marketplace-section');
@@ -22,20 +25,22 @@ const scrollToMarketplace = () => {
                     <li class="tn-page-header__market">
                         <a href="/"
                             class="cnt-link d-inline-block tn-page-header__market__link tn-page-header__market__link--active"
-                            target="_self" title="Individual Solutions">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Individual</span>
+                            target="_self" :title="t('navigation.individual')">
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.individual')
+                            }}</span>
                         </a>
                     </li>
                     <li class="tn-page-header__market">
                         <a href="/enterprise/" class="cnt-link d-inline-block tn-page-header__market__link"
-                            target="_self" title="Enterprise Solutions">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Enterprise</span>
+                            target="_self" :title="t('navigation.enterprise')">
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.enterprise')
+                            }}</span>
                         </a>
                     </li>
                     <li class="tn-page-header__market">
                         <a href="/partners/" class="cnt-link d-inline-block tn-page-header__market__link" target="_self"
-                            title="Partner Solutions">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Partners</span>
+                            :title="t('navigation.partners')">
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.partners') }}</span>
                         </a>
                     </li>
                 </ul>
@@ -53,7 +58,7 @@ const scrollToMarketplace = () => {
                     <li class="tn-page-header__main-item">
                         <RouterLink to="/" class="cnt-link tn-page-header__main-item__link d-flex" target="_self"
                             data-test="Home">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Home</span>
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.home') }}</span>
                         </RouterLink>
                     </li>
                     <li class="tn-page-header__main-item" hidden>
@@ -62,7 +67,8 @@ const scrollToMarketplace = () => {
                             target="_self" data-test="Platform-Pillars">
                             <span role="img" aria-hidden="true"
                                 class="cnt-link__icon cnt-link__icon--align-right icon-angle-down"></span>
-                            <span class="cnt-link__text cnt-link__text--no-hover">Platform Pillars</span>
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.platformPillars')
+                            }}</span>
                         </RouterLink>
                         <ul class="tn-page-header__secondary-items" style="display: none;">
                             <li class="tn-page-header__secondary-item">
@@ -70,7 +76,7 @@ const scrollToMarketplace = () => {
                                     class="cnt-link tn-page-header__secondary-item__link" target="_self"
                                     data-test="AI-Models">
                                     <div>
-                                        <span>AI Models</span>
+                                        <span>{{ t('navigation.aiModels') }}</span>
                                     </div>
                                 </a>
                             </li>
@@ -79,7 +85,7 @@ const scrollToMarketplace = () => {
                                     class="cnt-link tn-page-header__secondary-item__link" target="_self"
                                     data-test="Data-Infrastructure">
                                     <div>
-                                        <span>Data Infrastructure</span>
+                                        <span>{{ t('navigation.dataInfrastructure') }}</span>
                                     </div>
                                 </a>
                             </li>
@@ -88,7 +94,7 @@ const scrollToMarketplace = () => {
                                     class="cnt-link tn-page-header__secondary-item__link" target="_self"
                                     data-test="ML-Ops">
                                     <div>
-                                        <span>ML Ops</span>
+                                        <span>{{ t('navigation.mlOps') }}</span>
                                     </div>
                                 </a>
                             </li>
@@ -97,13 +103,14 @@ const scrollToMarketplace = () => {
                     <li class="tn-page-header__main-item">
                         <button @click="scrollToMarketplace" class="cnt-link tn-page-header__main-item__link d-flex"
                             data-test="Marketplace">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Marketplace</span>
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.marketplace')
+                            }}</span>
                         </button>
                     </li>
                     <li class="tn-page-header__main-item">
                         <RouterLink to="/contact" class="cnt-link tn-page-header__main-item__link d-flex" target="_self"
                             data-test="Contact">
-                            <span class="cnt-link__text cnt-link__text--no-hover">Contact Us</span>
+                            <span class="cnt-link__text cnt-link__text--no-hover">{{ t('navigation.contactUs') }}</span>
                         </RouterLink>
                     </li>
                 </ul>
@@ -114,30 +121,32 @@ const scrollToMarketplace = () => {
                     <div class="d-flex tn-site-search__input-container w-100">
                         <label for="site-search" class="d-flex">
                             <span class="icon icon-search d-flex" role="img" aria-hidden="true" alt=""></span>
-                            <span class="visually-hidden">What are you looking for?</span>
+                            <span class="visually-hidden">{{ t('common.whatAreYouLookingFor') }}</span>
                         </label>
-                        <input id="site-search" name="site-search" type="search" placeholder="What are you looking for?"
-                            class="tn-site-search__input" autocomplete="off" aria-autocomplete="list"
-                            aria-haspopup="true" v-model="searchQuery">
+                        <input id="site-search" name="site-search" type="search"
+                            :placeholder="t('common.whatAreYouLookingFor')" class="tn-site-search__input"
+                            autocomplete="off" aria-autocomplete="list" aria-haspopup="true" v-model="searchQuery">
                     </div>
                     <button class="tn-button tn-button--secondary tn-button--small" aria-disabled="false"
-                        type="submit">Search</button>
+                        type="submit">{{ t('common.search') }}</button>
                 </form>
             </div>
+
+            <LanguageSwitcher />
 
             <RouterLink v-if="authStore.isLoggedIn" to="/account"
                 class="tn-button tn-button--link tn-button--small text-center text-nowrap tn-page-header__quick-link"
                 target="_self">
                 <span class="d-flex justify-content-center tn-page-header__quick-link-icon icon icon-user"
                     aria-hidden="true" role="img" alt=""></span>
-                <span class="tn-page-header__quick-link__link-text">My Account</span>
+                <span class="tn-page-header__quick-link__link-text">{{ t('navigation.myAccount') }}</span>
             </RouterLink>
             <RouterLink v-else to="/login"
                 class="tn-button tn-button--link tn-button--small text-center text-nowrap tn-page-header__quick-link"
                 target="_self">
                 <span class="d-flex justify-content-center tn-page-header__quick-link-icon icon icon-user"
                     aria-hidden="true" role="img" alt=""></span>
-                <span class="tn-page-header__quick-link__link-text">Log in</span>
+                <span class="tn-page-header__quick-link__link-text">{{ t('navigation.logIn') }}</span>
             </RouterLink>
         </div>
 

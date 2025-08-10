@@ -2,67 +2,73 @@
     <aside class="sidebar">
         <div class="sidebar-top">
             <div class="logo-area">
-                <RouterLink to="/">My Cloud</RouterLink>
+                <RouterLink to="/">{{ t('sidebar.myCloud') }}</RouterLink>
             </div>
             <nav class="sidebar-nav">
                 <div class="nav-group">
-                    <span class="group-title">DASHBOARD</span>
+                    <span class="group-title">{{ t('sidebar.dashboard') }}</span>
                     <ul>
                         <li>
-                            <RouterLink to="/account" class="nav-link">Overview</RouterLink>
+                            <RouterLink to="/account" class="nav-link">{{ t('sidebar.overview') }}</RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/account/resources" class="nav-link">My Resources</RouterLink>
+                            <RouterLink to="/account/resources" class="nav-link">{{ t('sidebar.myResources') }}
+                            </RouterLink>
                         </li>
                         <li>
-                            <RouterLink to="/account/usage" class="nav-link">Usage & Analytics</RouterLink>
+                            <RouterLink to="/account/usage" class="nav-link">{{ t('sidebar.usageAnalytics') }}
+                            </RouterLink>
                         </li>
 
                     </ul>
                 </div>
                 <div class="nav-group">
-                    <span class="group-title">SERVICES</span>
+                    <span class="group-title">{{ t('sidebar.services') }}</span>
                     <ul>
                         <li>
-                            <RouterLink to="/account/marketplace" class="nav-link">Marketplace</RouterLink>
+                            <RouterLink to="/account/marketplace" class="nav-link">{{ t('sidebar.marketplace') }}
+                            </RouterLink>
                         </li>
-                        <li><a href="#" class="nav-link">API Management</a></li>
-                        <li><a href="#" class="nav-link">Model Registry</a></li>
+                        <li><a href="#" class="nav-link">{{ t('sidebar.apiManagement') }}</a></li>
+                        <li><a href="#" class="nav-link">{{ t('sidebar.modelRegistry') }}</a></li>
                     </ul>
                 </div>
                 <div class="nav-group">
-                    <span class="group-title">SUPPORT</span>
+                    <span class="group-title">{{ t('sidebar.support') }}</span>
                     <ul>
                         <li>
-                            <RouterLink to="/account/support" class="nav-link">Support Center</RouterLink>
+                            <RouterLink to="/account/support" class="nav-link">{{ t('sidebar.supportCenter') }}
+                            </RouterLink>
                         </li>
-                        <li><a href="#" class="nav-link">Documentation</a></li>
-                        <li><a href="#" class="nav-link">System Status <span class="status-indicator">99.9%</span></a>
+                        <li><a href="#" class="nav-link">{{ t('sidebar.documentation') }}</a></li>
+                        <li><a href="#" class="nav-link">{{ t('sidebar.systemStatus') }} <span
+                                    class="status-indicator">99.9%</span></a>
                         </li>
                     </ul>
                 </div>
                 <div class="nav-group">
-                    <span class="group-title">ADMINISTRATION</span>
+                    <span class="group-title">{{ t('sidebar.administration') }}</span>
                     <ul>
                         <li>
-                            <RouterLink to="/account/admin" class="nav-link">Admin Settings</RouterLink>
+                            <RouterLink to="/account/admin" class="nav-link">{{ t('sidebar.adminSettings') }}
+                            </RouterLink>
                         </li>
                     </ul>
                 </div>
             </nav>
         </div>
         <div class="usage-stats">
-            <h3 class="stats-title">CURRENT MONTH</h3>
+            <h3 class="stats-title">{{ t('sidebar.currentMonth') }}</h3>
             <div class="stat-item">
                 <div class="stat-header">
-                    <span>Total Spend</span>
+                    <span>{{ t('sidebar.totalSpend') }}</span>
                     <span>+7%</span>
                 </div>
                 <div class="stat-value">€1,247</div>
             </div>
             <div class="stat-item">
                 <div class="stat-header">
-                    <span>GPU Hours</span>
+                    <span>{{ t('sidebar.gpuHours') }}</span>
                 </div>
                 <div class="stat-value">847/1000</div>
                 <div class="progress-bar">
@@ -71,20 +77,23 @@
             </div>
             <div class="stat-item">
                 <div class="stat-header">
-                    <span>Storage</span>
+                    <span>{{ t('sidebar.storage') }}</span>
                 </div>
                 <div class="stat-value">1.2TB/2TB</div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 60%;"></div>
                 </div>
             </div>
-            <RouterLink to="/account" class="details-btn">View Dashboard</RouterLink>
+            <RouterLink to="/account" class="details-btn">{{ t('sidebar.viewDashboard') }}</RouterLink>
         </div>
     </aside>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>

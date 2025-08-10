@@ -1,56 +1,56 @@
 <template>
     <div class="support-center">
-        <h1 class="page-title">Support Center</h1>
+        <h1 class="page-title">{{ t('support.title') }}</h1>
 
         <div class="search-bar">
-            <input type="search" placeholder="Search documentation, FAQs, or forums...">
+            <input type="search" :placeholder="t('support.searchPlaceholder')">
         </div>
 
         <div class="content-grid">
             <section class="support-section">
-                <h2 class="section-title">Top Articles</h2>
+                <h2 class="section-title">{{ t('support.topArticles') }}</h2>
                 <ul class="article-list">
-                    <li><a href="#">Getting Started with GPU-as-a-Service</a></li>
-                    <li><a href="#">Troubleshooting Common AI Lab Issues</a></li>
-                    <li><a href="#">Understanding Your Usage & Billing Report</a></li>
-                    <li><a href="#">Integrating Custom Models with AI Gateway</a></li>
-                    <li><a href="#">Security Best Practices for Sovereign AI</a></li>
+                    <li><a href="#">{{ t('support.articles.gettingStarted') }}</a></li>
+                    <li><a href="#">{{ t('support.articles.troubleshooting') }}</a></li>
+                    <li><a href="#">{{ t('support.articles.billing') }}</a></li>
+                    <li><a href="#">{{ t('support.articles.integrating') }}</a></li>
+                    <li><a href="#">{{ t('support.articles.security') }}</a></li>
                 </ul>
             </section>
 
             <section class="support-section">
-                <h2 class="section-title">Knowledge Base Categories</h2>
+                <h2 class="section-title">{{ t('support.knowledgeBase') }}</h2>
                 <div class="category-grid">
-                    <a href="#" class="category-card">GPU Services</a>
-                    <a href="#" class="category-card">AI Models</a>
-                    <a href="#" class="category-card">Billing & Payments</a>
-                    <a href="#" class="category-card">Security & Compliance</a>
-                    <a href="#" class="category-card">API & Integrations</a>
-                    <a href="#" class="category-card">Data Fabric</a>
+                    <a href="#" class="category-card">{{ t('support.categories.gpuServices') }}</a>
+                    <a href="#" class="category-card">{{ t('support.categories.aiModels') }}</a>
+                    <a href="#" class="category-card">{{ t('support.categories.billing') }}</a>
+                    <a href="#" class="category-card">{{ t('support.categories.security') }}</a>
+                    <a href="#" class="category-card">{{ t('support.categories.api') }}</a>
+                    <a href="#" class="category-card">{{ t('support.categories.dataFabric') }}</a>
                 </div>
             </section>
         </div>
 
         <section class="support-section">
-            <h2 class="section-title">Support Channels</h2>
-            <p>Need more help? Our support team is here for you.</p>
+            <h2 class="section-title">{{ t('support.supportChannels') }}</h2>
+            <p>{{ t('support.needHelp') }}</p>
             <div class="channel-buttons">
-                <button class="channel-btn" @click="isModalOpen = true">Open a Ticket</button>
-                <button class="channel-btn secondary">Live Chat</button>
+                <button class="channel-btn" @click="isModalOpen = true">{{ t('support.openTicket') }}</button>
+                <button class="channel-btn secondary">{{ t('support.liveChat') }}</button>
             </div>
         </section>
 
         <section class="support-section ticket-history">
-            <h2 class="section-title">Ticket History</h2>
-            <p>Overview of your past support requests.</p>
+            <h2 class="section-title">{{ t('support.ticketHistory') }}</h2>
+            <p>{{ t('support.ticketOverview') }}</p>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
-                            <th>TICKET ID</th>
-                            <th>SUBJECT</th>
-                            <th>STATUS</th>
-                            <th>LAST UPDATE</th>
+                            <th>{{ t('support.ticketHeaders.id') }}</th>
+                            <th>{{ t('support.ticketHeaders.subject') }}</th>
+                            <th>{{ t('support.ticketHeaders.status') }}</th>
+                            <th>{{ t('support.ticketHeaders.lastUpdate') }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -59,10 +59,11 @@
                             <td>{{ ticket.id }}</td>
                             <td>{{ ticket.subject }}</td>
                             <td>
-                                <span :class="['status-pill', ticket.status.toLowerCase()]">{{ ticket.status }}</span>
+                                <span :class="['status-pill', ticket.status.toLowerCase()]">{{
+                                    t(`support.ticketStatuses.${ticket.status.toLowerCase()}`) }}</span>
                             </td>
                             <td>{{ ticket.date }}</td>
-                            <td><a href="#" class="details-link">View Details</a></td>
+                            <td><a href="#" class="details-link">{{ t('common.viewDetails') }}</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -75,8 +76,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { apiService } from '@/services/apiService';
 import NewTicketModal from '@/components/NewTicketModal.vue'; // <-- Import the modal
+
+const { t } = useI18n();
 
 interface Ticket {
     id: string;

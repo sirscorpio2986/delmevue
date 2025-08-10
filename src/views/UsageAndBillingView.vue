@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { apiService } from '@/services/apiService';
+
+const { t } = useI18n();
 import { Doughnut, Line } from 'vue-chartjs';
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale, LinearScale, PointElement, LineElement, Filler } from 'chart.js';
 import type { ChartOptions } from 'chart.js';
@@ -55,7 +58,7 @@ const doughnutChartOptions = computed((): ChartOptions<'doughnut'> => ({
 const lineChartData = computed(() => ({
     labels: data.value?.dailySpendTrend.labels || [],
     datasets: [{
-        label: 'Daily Spend (€)',
+        label: t('usageBilling.dailySpend'),
         data: data.value?.dailySpendTrend.data || [],
         borderColor: '#2dd4bf',
         pointBackgroundColor: '#2dd4bf',
@@ -116,53 +119,58 @@ const lineChartOptions = computed((): ChartOptions<'line'> => ({
     <div class="usage-billing-view">
         <div class="page-header">
             <div>
-                <h1 class="page-title">Usage & Billing</h1>
-                <p class="page-subtitle">Overview of your AI infrastructure consumption and costs.</p>
+                <h1 class="page-title">{{ t('usageBilling.title') }}</h1>
+                <p class="page-subtitle">{{ t('usageBilling.subtitle') }}</p>
             </div>
             <div class="header-actions">
-                <button class="action-btn">View Invoices</button>
-                <button class="action-btn primary">Download Report</button>
+                <button class="action-btn">{{ t('usageBilling.viewInvoices') }}</button>
+                <button class="action-btn primary">{{ t('usageBilling.downloadReport') }}</button>
             </div>
         </div>
 
         <div v-for="alert in data?.alerts" :key="alert.message" :class="['alert-banner', alert.type]">
-            {{ alert.message }} <a href="#">{{ alert.type === 'warning' ? 'Increase Quota' : 'View Details' }}</a>
+            {{ alert.message }} <a href="#">{{ alert.type === 'warning' ? t('usageBilling.increaseQuota') :
+                t('usageBilling.viewDetails') }}</a>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card">
-                <h4>Current Month Spent</h4>
+                <h4>{{ t('usageBilling.currentMonthSpent') }}</h4>
                 <div class="stat-value">{{ data?.stats.currentMonthSpent.currency }}{{
                     data?.stats.currentMonthSpent.value.toLocaleString('en-US') }}</div>
-                <div class="stat-footer positive">{{ data?.stats.currentMonthSpent.change }} vs. last month</div>
+                <div class="stat-footer positive">{{ data?.stats.currentMonthSpent.change }} {{
+                    t('usageBilling.vsLastMonth') }}</div>
             </div>
             <div class="stat-card">
-                <h4>GPU Hours Used</h4>
+                <h4>{{ t('usageBilling.gpuHoursUsed') }}</h4>
                 <div class="stat-value">{{ data?.stats.gpuHoursUsed.value.toLocaleString('en-US') }} {{
                     data?.stats.gpuHoursUsed.unit }}</div>
-                <div class="stat-footer negative">{{ data?.stats.gpuHoursUsed.change }} vs. last month</div>
+                <div class="stat-footer negative">{{ data?.stats.gpuHoursUsed.change }} {{ t('usageBilling.vsLastMonth')
+                }}</div>
             </div>
             <div class="stat-card">
-                <h4>API Calls (LLM)</h4>
+                <h4>{{ t('usageBilling.apiCalls') }}</h4>
                 <div class="stat-value">{{ data?.stats.apiCalls.value }}{{ data?.stats.apiCalls.unit }}</div>
-                <div class="stat-footer positive">{{ data?.stats.apiCalls.change }} vs. last month</div>
+                <div class="stat-footer positive">{{ data?.stats.apiCalls.change }} {{ t('usageBilling.vsLastMonth') }}
+                </div>
             </div>
             <div class="stat-card">
-                <h4>Data Stored (TB)</h4>
+                <h4>{{ t('usageBilling.dataStored') }}</h4>
                 <div class="stat-value">{{ data?.stats.dataStored.value }} {{ data?.stats.dataStored.unit }}</div>
-                <div class="stat-footer negative">{{ data?.stats.dataStored.change }} vs. last month</div>
+                <div class="stat-footer negative">{{ data?.stats.dataStored.change }} {{ t('usageBilling.vsLastMonth')
+                }}</div>
             </div>
         </div>
 
         <div class="content-grid">
             <div class="content-card large">
-                <h3 class="card-title">Spend by Service</h3>
+                <h3 class="card-title">{{ t('usageBilling.spendByService') }}</h3>
                 <div class="chart-container" style="height: 250px;">
                     <Doughnut v-if="data" :data="doughnutChartData" :options="doughnutChartOptions" />
                 </div>
             </div>
             <div class="content-card">
-                <h3 class="card-title">Top Consumed Resources</h3>
+                <h3 class="card-title">{{ t('usageBilling.topConsumedResources') }}</h3>
                 <ul class="resource-list">
                     <li v-for="resource in data?.topConsumedResources" :key="resource.name">
                         <span>{{ resource.name }}</span>
@@ -172,7 +180,7 @@ const lineChartOptions = computed((): ChartOptions<'line'> => ({
             </div>
             <div class="content-card full-width">
                 <div class="card-header">
-                    <h3 class="card-title">Daily Spend Trend</h3>
+                    <h3 class="card-title">{{ t('usageBilling.dailySpendTrend') }}</h3>
                     <span class="efficiency-badge">Cost Efficiency: High</span>
                 </div>
                 <div class="chart-container" style="height: 300px;">

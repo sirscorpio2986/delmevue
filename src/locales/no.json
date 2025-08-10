@@ -1,0 +1,303 @@
+{
+  "common": {
+    "loading": "Laster...",
+    "search": "Søk",
+    "cancel": "Avbryt",
+    "submit": "Send inn",
+    "close": "Lukk",
+    "save": "Lagre",
+    "edit": "Rediger",
+    "delete": "Slett",
+    "view": "Vis",
+    "select": "Velg",
+    "explore": "Utforsk",
+    "learnMore": "Lær mer",
+    "showMore": "Vis mer",
+    "viewDetails": "Vis detaljer",
+    "readMore": "Les mer",
+    "addExtraUsers": "Legg til flere brukere",
+    "whatAreYouLookingFor": "Hva leter du etter?"
+  },
+  "navigation": {
+    "home": "Hjem",
+    "individual": "Privatperson",
+    "enterprise": "Bedrift",
+    "partners": "Partnere",
+    "platformPillars": "Plattformsøyler",
+    "aiModels": "AI-modeller",
+    "dataInfrastructure": "Datainfrastruktur",
+    "mlOps": "ML Ops",
+    "marketplace": "Markedsplass",
+    "contactUs": "Kontakt oss",
+    "myAccount": "Min konto",
+    "logIn": "Logg inn",
+    "aiFactory": "AI Factory"
+  },
+  "hero": {
+    "title": "Bedriftens AI-infrastruktur reimaginert",
+    "subtitle1": "Lås opp kraften til suveræn AI med vår omfattende GPU-som-en-tjeneste-plattform, avanserte ML-modeller og banebrytende AI-laboratorier.",
+    "subtitle2": "Designet for bedriftens fortreffelighet.",
+    "explorePlatform": "Utforsk plattform",
+    "scheduleDemo": "Bestill demo"
+  },
+  "features": {
+    "title": "Våre plattformtjenester",
+    "subtitle": "Vi har mange forskjellige AI-tjenester å velge mellom. Sammenlign og finn de beste løsningene for dine bedriftsbehov.",
+    "loadingServices": "Laster plattformtjenester..."
+  },
+  "offerings": {
+    "userQuestion": "Hvor mange brukere vil få tilgang til infrastrukturen?",
+    "commitmentText": "Forplikte seg til en 12-måneders kontrakt for bedre priser.",
+    "commitmentInfo": "Hva betyr forpliktelse?",
+    "campaign": "Kampanje",
+    "enterpriseCluster": {
+      "title": "Enterprise Cluster",
+      "description": "Skaler din AI-infrastruktur med opptil 50 brukere og få bedre priser jo mer du vokser.",
+      "price": "NOK 24,999/måned",
+      "pricePeriod": "i 12 måneder, deretter NOK 26,999/måned"
+    },
+    "premiumGpu": {
+      "title": "Premium GPU Cluster",
+      "features": {
+        "h100Gpus": "NVIDIA H100 GPU-er opptil 8x kort",
+        "prioritySupport": "Prioritetsstøtte og overvåking",
+        "unlimitedTransfer": "Ubegrenset dataoverføring",
+        "advancedSecurity": "Avanserte sikkerhetsfunksjoner"
+      },
+      "priceLabel": "Pris med forpliktelsesrabatt",
+      "originalPrice": "NOK 78,999/måned",
+      "currentPrice": "NOK 64,999/måned",
+      "pricePeriod": "I 12 måneder, deretter NOK 78,999/måned"
+    },
+    "standardGpu": {
+      "title": "Standard GPU Cluster",
+      "features": {
+        "a100Gpus": "NVIDIA A100 GPU-er opptil 4x kort",
+        "standardSupport": "Standard støtte",
+        "highSpeedTransfer": "Høyhastighets dataoverføring",
+        "advancedSecurity": "Avanserte sikkerhetsfunksjoner"
+      },
+      "priceLabel": "Pris med forpliktelsesrabatt",
+      "originalPrice": "NOK 61,999/måned",
+      "currentPrice": "NOK 54,999/måned",
+      "pricePeriod": "I 12 måneder, deretter NOK 61,999/måned"
+    },
+    "basicGpu": {
+      "title": "Basic GPU Cluster",
+      "features": {
+        "v100Gpus": "NVIDIA V100 GPU-er opptil 2x kort",
+        "basicSupport": "Grunnleggende støtte",
+        "highSpeedTransfer": "Høyhastighets dataoverføring",
+        "advancedSecurity": "Avanserte sikkerhetsfunksjoner"
+      },
+      "price": "NOK 48,999/måned"
+    }
+  },
+  "login": {
+    "title": "Logg inn på Min Sky",
+    "username": "Brukernavn",
+    "password": "Passord",
+    "usernamePlaceholder": "Skriv inn brukernavnet ditt",
+    "passwordPlaceholder": "Skriv inn passordet ditt",
+    "loginButton": "Logg inn",
+    "loggingIn": "Logger inn...",
+    "invalidCredentials": "Ugyldig brukernavn eller passord",
+    "loginError": "Det oppstod en feil under innlogging",
+    "demoCredentials": "Demo-legitimasjon:",
+    "demoUsername": "Brukernavn: admin",
+    "demoPassword": "Passord: password"
+  },
+  "products": {
+    "title": "Våre tjenester"
+  },
+  "support": {
+    "title": "Støttesenter",
+    "searchPlaceholder": "Søk i dokumentasjon, FAQ eller forum...",
+    "topArticles": "Toppartikler",
+    "articles": {
+      "gettingStarted": "Kom i gang med GPU-som-en-tjeneste",
+      "troubleshooting": "Feilsøking av vanlige AI Lab-problemer",
+      "billing": "Forstå din bruk og faktureringsrapport",
+      "integrating": "Integrere tilpassede modeller med AI Gateway",
+      "security": "Sikkerhetsbeste praksis for suveræn AI"
+    },
+    "knowledgeBase": "Kunnskapsbasekategorier",
+    "categories": {
+      "gpuServices": "GPU-tjenester",
+      "aiModels": "AI-modeller",
+      "billing": "Fakturering og betalinger",
+      "security": "Sikkerhet og samsvar",
+      "api": "API og integrasjoner",
+      "dataFabric": "Data Fabric"
+    },
+    "supportChannels": "Støttekanaler",
+    "needHelp": "Trenger du mer hjelp? Støtteteamet vårt er her for deg.",
+    "openTicket": "Åpne en sak",
+    "liveChat": "Live chat",
+    "ticketHistory": "Sakhistorikk",
+    "ticketOverview": "Oversikt over dine tidligere støtteforespørsler.",
+    "ticketHeaders": {
+      "id": "SAK-ID",
+      "subject": "EMNE",
+      "status": "STATUS",
+      "lastUpdate": "SISTE OPPDATERING"
+    },
+    "ticketStatuses": {
+      "open": "Åpen",
+      "closed": "Lukket",
+      "pending": "Venter"
+    }
+  },
+  "ticketModal": {
+    "title": "Ny støttesak",
+    "category": "Kategori",
+    "categories": {
+      "technical": "Teknisk støtte",
+      "billing": "Faktureringsproblemer",
+      "general": "Generell forespørsel"
+    },
+    "description": "Beskrivelse",
+    "descriptionPlaceholder": "Beskriv problemet ditt i detalj...",
+    "attachments": "Vedlegg (valgfritt)",
+    "dropZone": "Dra og slipp filer her eller klikk for å bla gjennom",
+    "contactMethod": "Foretrukket kontaktmetode",
+    "contactMethods": {
+      "email": "E-post",
+      "phone": "Telefon",
+      "inApp": "I appen"
+    },
+    "submitTicket": "Send inn sak",
+    "submitting": "Sender inn...",
+    "descriptionRequired": "Beskrivelse er påkrevd.",
+    "ticketCreated": "Sak opprettet vellykket!",
+    "ticketCreateError": "Kunne ikke opprette sak. Vennligst prøv igjen."
+  },
+  "contact": {
+    "title": "Kontakt oss",
+    "subtitle": "Vi vil gjerne høre fra deg. Fyll ut skjemaet nedenfor så kommer vi tilbake til deg snart.",
+    "fullName": "Fullt navn",
+    "fullNamePlaceholder": "Ditt fulle navn",
+    "emailAddress": "E-postadresse",
+    "emailPlaceholder": "deg@eksempel.com",
+    "company": "Selskap",
+    "companyPlaceholder": "Ditt selskapsnavn",
+    "interest": "Interesse",
+    "interestPlaceholder": "f.eks. GPU som en tjeneste, AI-modeller",
+    "message": "Melding",
+    "messagePlaceholder": "Fortell oss om dine behov...",
+    "sendMessage": "Send melding",
+    "contactInformation": "Kontaktinformasjon",
+    "headquarters": "Hovedkontor",
+    "email": "E-post",
+    "phone": "Telefon",
+    "scheduleDemo": "Bestill en demo",
+    "demoSubtitle": "Interessert i en personlig gjennomgang?",
+    "bookMeeting": "Bestill møte"
+  },
+  "about": {
+    "title": "Dette er en om-side"
+  },
+  "marketplace": {
+    "title": "Oppdag ferdigbyggede AI-løsninger og infrastruktur for din bransje.",
+    "showingResults": "Viser {count} av {total} løsninger",
+    "filters": "Filtre",
+    "category": "Kategori",
+    "all": "Alle",
+    "telecom": "Telekom",
+    "finance": "Finans",
+    "healthcare": "Helsevesen",
+    "energy": "Energi",
+    "retail": "Detaljhandel",
+    "serviceType": "Tjenestetype",
+    "models": "Modeller",
+    "infrastructure": "Infrastruktur",
+    "platforms": "Plattformer",
+    "clearFilters": "Fjern filtre",
+    "applyFilters": "Bruk filtre",
+    "pricingModel": "Prismodell",
+    "subscription": "Abonnement",
+    "usageBased": "Bruksbasert",
+    "oneTime": "Engangs",
+    "saas": "SaaS",
+    "paas": "PaaS",
+    "iaas": "IaaS",
+    "popular": "Populært",
+    "requestAccess": "Be om tilgang",
+    "learnMore": "Lær mer"
+  },
+  "usageBilling": {
+    "title": "Bruk og fakturering",
+    "subtitle": "Oversikt over din AI-infrastruktur forbruk og kostnader.",
+    "viewInvoices": "Vis fakturaer",
+    "downloadReport": "Last ned rapport",
+    "increaseQuota": "Øk kvote",
+    "viewDetails": "Vis detaljer",
+    "currentMonthSpent": "Inneværende måned brukt",
+    "gpuHoursUsed": "GPU-timer brukt",
+    "apiCalls": "API-kall (LLM)",
+    "dataStored": "Data lagret (TB)",
+    "vsLastMonth": "vs. forrige måned",
+    "spendByService": "Forbruk per tjeneste",
+    "topConsumedResources": "Mest forbrukte ressurser",
+    "dailySpendTrend": "Daglig forbrukstrend",
+    "dailySpend": "Daglig forbruk (€)"
+  },
+  "overview": {
+    "title": "Dashbord-oversikt",
+    "subtitle": "Velkommen tilbake! Her er hva som skjer med din AI Factory-konto.",
+    "gpuHours": "GPU-timer",
+    "storage": "Lagring",
+    "dataEgress": "Data-utgang",
+    "thisMonthSpend": "Denne månedens forbruk",
+    "costs": "Kostnader",
+    "activeResources": "Aktive ressurser",
+    "recentActivity": "Nylig aktivitet",
+    "quickActions": "Hurtighandlinger",
+    "viewAll": "Vis alle",
+    "deployNewModel": "Distribuer ny modell",
+    "manageApiKeys": "Administrer API-nøkler",
+    "createSupportTicket": "Opprett støttesak",
+    "launchGpuInstance": "Start GPU-instans",
+    "viewUsageReport": "Vis bruksrapport"
+  },
+  "sidebar": {
+    "myCloud": "Min Sky",
+    "dashboard": "DASHBORD",
+    "overview": "Oversikt",
+    "myResources": "Mine ressurser",
+    "usageAnalytics": "Bruk og analyse",
+    "services": "TJENESTER",
+    "marketplace": "Markedsplass",
+    "apiManagement": "API-administrasjon",
+    "modelRegistry": "Modellregister",
+    "support": "STØTTE",
+    "supportCenter": "Støttesenter",
+    "documentation": "Dokumentasjon",
+    "systemStatus": "Systemstatus",
+    "administration": "ADMINISTRASJON",
+    "adminSettings": "Administratorinnstillinger",
+    "currentMonth": "INNEVÆRENDE MÅNED",
+    "totalSpend": "Totalt forbruk",
+    "gpuHours": "GPU-timer",
+    "storage": "Lagring",
+    "viewDashboard": "Vis dashbord"
+  },
+  "footer": {
+    "tagline": "Bedriftsklasse AI-løsninger med full datasuverenitet, hostet utelukkende i Norge.",
+    "solutions": "Løsninger",
+    "aiMarketplace": "AI Markedsplass",
+    "aiFactory": "AI Factory",
+    "gpuServices": "GPU-tjenester",
+    "resources": "Ressurser",
+    "security": "Sikkerhet og samsvar",
+    "documentation": "Dokumentasjon",
+    "caseStudies": "Case-studier",
+    "whitepapers": "Hvitbøker",
+    "blog": "Blogg",
+    "company": "Selskap",
+    "aboutUs": "Om oss",
+    "careers": "Karrierer",
+    "contact": "Kontakt",
+    "copyright": "© 2025 SovereignAI Factory. Alle rettigheter forbeholdt."
+  }
+}

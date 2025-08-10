@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const form = ref({
     fullName: '',
@@ -18,50 +21,52 @@ const handleSubmit = () => {
     <div class="contact-page">
         <div class="container">
             <div class="form-container">
-                <h1 class="page-title">Contact Us</h1>
-                <p class="page-subtitle">We'd love to hear from you. Fill out the form below and we'll get back to you
-                    shortly.</p>
+                <h1 class="page-title">{{ t('contact.title') }}</h1>
+                <p class="page-subtitle">{{ t('contact.subtitle') }}</p>
                 <form @submit.prevent="handleSubmit">
                     <div class="form-group">
-                        <label for="fullName">Full Name</label>
-                        <input type="text" id="fullName" v-model="form.fullName" placeholder="Your Full Name">
+                        <label for="fullName">{{ t('contact.fullName') }}</label>
+                        <input type="text" id="fullName" v-model="form.fullName"
+                            :placeholder="t('contact.fullNamePlaceholder')">
                     </div>
                     <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" v-model="form.email" placeholder="you@example.com">
+                        <label for="email">{{ t('contact.emailAddress') }}</label>
+                        <input type="email" id="email" v-model="form.email"
+                            :placeholder="t('contact.emailPlaceholder')">
                     </div>
                     <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" v-model="form.company" placeholder="Your Company Name">
+                        <label for="company">{{ t('contact.company') }}</label>
+                        <input type="text" id="company" v-model="form.company"
+                            :placeholder="t('contact.companyPlaceholder')">
                     </div>
                     <div class="form-group">
-                        <label for="interest">Interest</label>
+                        <label for="interest">{{ t('contact.interest') }}</label>
                         <input type="text" id="interest" v-model="form.interest"
-                            placeholder="e.g., GPU as a Service, AI Models">
+                            :placeholder="t('contact.interestPlaceholder')">
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="message">{{ t('contact.message') }}</label>
                         <textarea id="message" v-model="form.message" rows="5"
-                            placeholder="Tell us about your needs..."></textarea>
+                            :placeholder="t('contact.messagePlaceholder')"></textarea>
                     </div>
-                    <button type="submit" class="primary-btn">Send Message</button>
+                    <button type="submit" class="primary-btn">{{ t('contact.sendMessage') }}</button>
                 </form>
             </div>
 
             <div class="info-container">
                 <div class="info-card">
-                    <h2>Contact Information</h2>
-                    <h3>Headquarters</h3>
+                    <h2>{{ t('contact.contactInformation') }}</h2>
+                    <h3>{{ t('contact.headquarters') }}</h3>
                     <p>SovereignAI Cloud AS<br>Teknologiveien 22<br>0274 Oslo, Norway</p>
-                    <h3>Email</h3>
+                    <h3>{{ t('contact.email') }}</h3>
                     <p>contact@sovereignai.com</p>
-                    <h3>Phone</h3>
+                    <h3>{{ t('contact.phone') }}</h3>
                     <p>+47 22 55 66 77</p>
                 </div>
                 <div class="info-card">
-                    <h2>Schedule a Demo</h2>
-                    <p>Interested in a personalized walkthrough?</p>
-                    <button class="secondary-btn">Book Meeting</button>
+                    <h2>{{ t('contact.scheduleDemo') }}</h2>
+                    <p>{{ t('contact.demoSubtitle') }}</p>
+                    <button class="secondary-btn">{{ t('contact.bookMeeting') }}</button>
                 </div>
             </div>
         </div>

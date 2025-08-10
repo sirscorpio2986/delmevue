@@ -1,0 +1,303 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "search": "Search",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "view": "View",
+    "select": "Select",
+    "explore": "Explore",
+    "learnMore": "Learn more",
+    "showMore": "Show more",
+    "viewDetails": "View Details",
+    "readMore": "Read more",
+    "addExtraUsers": "Add extra users",
+    "whatAreYouLookingFor": "What are you looking for?"
+  },
+  "navigation": {
+    "home": "Home",
+    "individual": "Individual",
+    "enterprise": "Enterprise",
+    "partners": "Partners",
+    "platformPillars": "Platform Pillars",
+    "aiModels": "AI Models",
+    "dataInfrastructure": "Data Infrastructure",
+    "mlOps": "ML Ops",
+    "marketplace": "Marketplace",
+    "contactUs": "Contact Us",
+    "myAccount": "My Account",
+    "logIn": "Log in",
+    "aiFactory": "AI Factory"
+  },
+  "hero": {
+    "title": "Enterprise AI Infrastructure Reimagined",
+    "subtitle1": "Unlock the power of sovereign Al with our comprehensive GPU-as-a-Service platform, advanced ML models, and cutting-edge Al laboratories.",
+    "subtitle2": "Designed for enterprise excellence.",
+    "explorePlatform": "Explore Platform",
+    "scheduleDemo": "Schedule Demo"
+  },
+  "features": {
+    "title": "Our Platform Services",
+    "subtitle": "We have many different AI services to choose from. Compare and find the best solutions for your enterprise needs.",
+    "loadingServices": "Loading platform services..."
+  },
+  "offerings": {
+    "userQuestion": "How many users will access the infrastructure?",
+    "commitmentText": "Commit to a 12-month contract for better pricing.",
+    "commitmentInfo": "What does commitment mean?",
+    "campaign": "Campaign",
+    "enterpriseCluster": {
+      "title": "Enterprise Cluster",
+      "description": "Scale your AI infrastructure with up to 50 users and get better pricing the more you grow.",
+      "price": "NOK 24,999/month",
+      "pricePeriod": "for 12 months, then NOK 26,999/month"
+    },
+    "premiumGpu": {
+      "title": "Premium GPU Cluster",
+      "features": {
+        "h100Gpus": "NVIDIA H100 GPUs up to 8x cards",
+        "prioritySupport": "Priority Support & Monitoring",
+        "unlimitedTransfer": "Unlimited data transfer",
+        "advancedSecurity": "Advanced security features"
+      },
+      "priceLabel": "Price with commitment discount",
+      "originalPrice": "NOK 78,999/month",
+      "currentPrice": "NOK 64,999/month",
+      "pricePeriod": "For 12 months, then NOK 78,999/month"
+    },
+    "standardGpu": {
+      "title": "Standard GPU Cluster",
+      "features": {
+        "a100Gpus": "NVIDIA A100 GPUs up to 4x cards",
+        "standardSupport": "Standard Support",
+        "highSpeedTransfer": "High-speed data transfer",
+        "advancedSecurity": "Advanced security features"
+      },
+      "priceLabel": "Price with commitment discount",
+      "originalPrice": "NOK 61,999/month",
+      "currentPrice": "NOK 54,999/month",
+      "pricePeriod": "For 12 months, then NOK 61,999/month"
+    },
+    "basicGpu": {
+      "title": "Basic GPU Cluster",
+      "features": {
+        "v100Gpus": "NVIDIA V100 GPUs up to 2x cards",
+        "basicSupport": "Basic Support",
+        "highSpeedTransfer": "High-speed data transfer",
+        "advancedSecurity": "Advanced security features"
+      },
+      "price": "NOK 48,999/month"
+    }
+  },
+  "login": {
+    "title": "Login to My Cloud",
+    "username": "Username",
+    "password": "Password",
+    "usernamePlaceholder": "Enter your username",
+    "passwordPlaceholder": "Enter your password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "invalidCredentials": "Invalid username or password",
+    "loginError": "An error occurred during login",
+    "demoCredentials": "Demo credentials:",
+    "demoUsername": "Username: admin",
+    "demoPassword": "Password: password"
+  },
+  "products": {
+    "title": "Our Services"
+  },
+  "support": {
+    "title": "Support Center",
+    "searchPlaceholder": "Search documentation, FAQs, or forums...",
+    "topArticles": "Top Articles",
+    "articles": {
+      "gettingStarted": "Getting Started with GPU-as-a-Service",
+      "troubleshooting": "Troubleshooting Common AI Lab Issues",
+      "billing": "Understanding Your Usage & Billing Report",
+      "integrating": "Integrating Custom Models with AI Gateway",
+      "security": "Security Best Practices for Sovereign AI"
+    },
+    "knowledgeBase": "Knowledge Base Categories",
+    "categories": {
+      "gpuServices": "GPU Services",
+      "aiModels": "AI Models",
+      "billing": "Billing & Payments",
+      "security": "Security & Compliance",
+      "api": "API & Integrations",
+      "dataFabric": "Data Fabric"
+    },
+    "supportChannels": "Support Channels",
+    "needHelp": "Need more help? Our support team is here for you.",
+    "openTicket": "Open a Ticket",
+    "liveChat": "Live Chat",
+    "ticketHistory": "Ticket History",
+    "ticketOverview": "Overview of your past support requests.",
+    "ticketHeaders": {
+      "id": "TICKET ID",
+      "subject": "SUBJECT",
+      "status": "STATUS",
+      "lastUpdate": "LAST UPDATE"
+    },
+    "ticketStatuses": {
+      "open": "Open",
+      "closed": "Closed",
+      "pending": "Pending"
+    }
+  },
+  "ticketModal": {
+    "title": "New Support Ticket",
+    "category": "Category",
+    "categories": {
+      "technical": "Technical Support",
+      "billing": "Billing Issues",
+      "general": "General Inquiry"
+    },
+    "description": "Description",
+    "descriptionPlaceholder": "Describe your issue in detail...",
+    "attachments": "Attachments (optional)",
+    "dropZone": "Drag & drop files here or click to browse",
+    "contactMethod": "Preferred Contact Method",
+    "contactMethods": {
+      "email": "Email",
+      "phone": "Phone",
+      "inApp": "In-app"
+    },
+    "submitTicket": "Submit Ticket",
+    "submitting": "Submitting...",
+    "descriptionRequired": "Description is required.",
+    "ticketCreated": "Ticket created successfully!",
+    "ticketCreateError": "Failed to create ticket. Please try again."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Fill out the form below and we'll get back to you shortly.",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Your Full Name",
+    "emailAddress": "Email Address",
+    "emailPlaceholder": "you@example.com",
+    "company": "Company",
+    "companyPlaceholder": "Your Company Name",
+    "interest": "Interest",
+    "interestPlaceholder": "e.g., GPU as a Service, AI Models",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your needs...",
+    "sendMessage": "Send Message",
+    "contactInformation": "Contact Information",
+    "headquarters": "Headquarters",
+    "email": "Email",
+    "phone": "Phone",
+    "scheduleDemo": "Schedule a Demo",
+    "demoSubtitle": "Interested in a personalized walkthrough?",
+    "bookMeeting": "Book Meeting"
+  },
+  "about": {
+    "title": "This is an about page"
+  },
+  "marketplace": {
+    "title": "Discover pre-built AI solutions and infrastructure for your industry.",
+    "showingResults": "Showing {count} of {total} solutions",
+    "filters": "Filters",
+    "category": "Category",
+    "all": "All",
+    "telecom": "Telecom",
+    "finance": "Finance",
+    "healthcare": "Healthcare",
+    "energy": "Energy",
+    "retail": "Retail",
+    "serviceType": "Service Type",
+    "models": "Models",
+    "infrastructure": "Infrastructure",
+    "platforms": "Platforms",
+    "clearFilters": "Clear Filters",
+    "applyFilters": "Apply Filters",
+    "pricingModel": "Pricing Model",
+    "subscription": "Subscription",
+    "usageBased": "Usage-based",
+    "oneTime": "One-time",
+    "saas": "SaaS",
+    "paas": "PaaS",
+    "iaas": "IaaS",
+    "popular": "Popular",
+    "requestAccess": "Request Access",
+    "learnMore": "Learn More"
+  },
+  "usageBilling": {
+    "title": "Usage & Billing",
+    "subtitle": "Overview of your AI infrastructure consumption and costs.",
+    "viewInvoices": "View Invoices",
+    "downloadReport": "Download Report",
+    "increaseQuota": "Increase Quota",
+    "viewDetails": "View Details",
+    "currentMonthSpent": "Current Month Spent",
+    "gpuHoursUsed": "GPU Hours Used",
+    "apiCalls": "API Calls (LLM)",
+    "dataStored": "Data Stored (TB)",
+    "vsLastMonth": "vs. last month",
+    "spendByService": "Spend by Service",
+    "topConsumedResources": "Top Consumed Resources",
+    "dailySpendTrend": "Daily Spend Trend",
+    "dailySpend": "Daily Spend (€)"
+  },
+  "overview": {
+    "title": "Dashboard Overview",
+    "subtitle": "Welcome back! Here's what's happening with your AI Factory account.",
+    "gpuHours": "GPU Hours",
+    "storage": "Storage",
+    "dataEgress": "Data Egress",
+    "thisMonthSpend": "This Month's Spend",
+    "costs": "Costs",
+    "activeResources": "Active Resources",
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "viewAll": "View All",
+    "deployNewModel": "Deploy New Model",
+    "manageApiKeys": "Manage API Keys",
+    "createSupportTicket": "Create Support Ticket",
+    "launchGpuInstance": "Launch GPU Instance",
+    "viewUsageReport": "View Usage Report"
+  },
+  "sidebar": {
+    "myCloud": "My Cloud",
+    "dashboard": "DASHBOARD",
+    "overview": "Overview",
+    "myResources": "My Resources",
+    "usageAnalytics": "Usage & Analytics",
+    "services": "SERVICES",
+    "marketplace": "Marketplace",
+    "apiManagement": "API Management",
+    "modelRegistry": "Model Registry",
+    "support": "SUPPORT",
+    "supportCenter": "Support Center",
+    "documentation": "Documentation",
+    "systemStatus": "System Status",
+    "administration": "ADMINISTRATION",
+    "adminSettings": "Admin Settings",
+    "currentMonth": "CURRENT MONTH",
+    "totalSpend": "Total Spend",
+    "gpuHours": "GPU Hours",
+    "storage": "Storage",
+    "viewDashboard": "View Dashboard"
+  },
+  "footer": {
+    "tagline": "Enterprise-grade Al solutions with full data sovereignty, hosted exclusively in Norway.",
+    "solutions": "Solutions",
+    "aiMarketplace": "Al Marketplace",
+    "aiFactory": "Al Factory",
+    "gpuServices": "GPU Services",
+    "resources": "Resources",
+    "security": "Security & Compliance",
+    "documentation": "Documentation",
+    "caseStudies": "Case Studies",
+    "whitepapers": "White Papers",
+    "blog": "Blog",
+    "company": "Company",
+    "aboutUs": "About Us",
+    "careers": "Careers",
+    "contact": "Contact",
+    "copyright": "© 2025 SovereignAI Factory. All rights reserved."
+  }
+}

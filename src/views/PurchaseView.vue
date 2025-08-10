@@ -3,8 +3,11 @@
         <div class="marketplace-container">
             <!-- Header Section -->
             <div class="marketplace-header">
-                <h1>Discover pre-built AI solutions and infrastructure for your industry.</h1>
-                <p class="results-count">Showing {{ filteredSolutions.length }} of {{ aiSolutions.length }} solutions
+                <h1>{{ t('marketplace.title') }}</h1>
+                <p class="results-count">{{ t('marketplace.showingResults', {
+                    count: filteredSolutions.length, total:
+                        aiSolutions.length
+                }) }}
                 </p>
             </div>
 
@@ -12,41 +15,42 @@
                 <!-- Filters Sidebar -->
                 <aside class="filters-sidebar">
                     <div class="filters-section">
-                        <h3>Filters</h3>
+                        <h3>{{ t('marketplace.filters') }}</h3>
 
                         <div class="filter-group">
-                            <label for="category-filter">Category</label>
+                            <label for="category-filter">{{ t('marketplace.category') }}</label>
                             <select id="category-filter" v-model="filters.category">
-                                <option value="All">All</option>
-                                <option value="Telecom">Telecom</option>
-                                <option value="Finance">Finance</option>
-                                <option value="Healthcare">Healthcare</option>
-                                <option value="Energy">Energy</option>
-                                <option value="Retail">Retail</option>
+                                <option value="All">{{ t('marketplace.all') }}</option>
+                                <option value="Telecom">{{ t('marketplace.telecom') }}</option>
+                                <option value="Finance">{{ t('marketplace.finance') }}</option>
+                                <option value="Healthcare">{{ t('marketplace.healthcare') }}</option>
+                                <option value="Energy">{{ t('marketplace.energy') }}</option>
+                                <option value="Retail">{{ t('marketplace.retail') }}</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label for="service-type-filter">Service Type</label>
+                            <label for="service-type-filter">{{ t('marketplace.serviceType') }}</label>
                             <select id="service-type-filter" v-model="filters.serviceType">
-                                <option value="All">All</option>
-                                <option value="SaaS">SaaS</option>
-                                <option value="PaaS">PaaS</option>
-                                <option value="IaaS">IaaS</option>
+                                <option value="All">{{ t('marketplace.all') }}</option>
+                                <option value="SaaS">{{ t('marketplace.saas') }}</option>
+                                <option value="PaaS">{{ t('marketplace.paas') }}</option>
+                                <option value="IaaS">{{ t('marketplace.iaas') }}</option>
                             </select>
                         </div>
 
                         <div class="filter-group">
-                            <label for="pricing-filter">Pricing Model</label>
+                            <label for="pricing-filter">{{ t('marketplace.pricingModel') }}</label>
                             <select id="pricing-filter" v-model="filters.pricingModel">
-                                <option value="All">All</option>
-                                <option value="Subscription">Subscription</option>
-                                <option value="Usage-based">Usage-based</option>
-                                <option value="One-time">One-time</option>
+                                <option value="All">{{ t('marketplace.all') }}</option>
+                                <option value="Subscription">{{ t('marketplace.subscription') }}</option>
+                                <option value="Usage-based">{{ t('marketplace.usageBased') }}</option>
+                                <option value="One-time">{{ t('marketplace.oneTime') }}</option>
                             </select>
                         </div>
 
-                        <button @click="applyFilters" class="apply-filters-btn">Apply Filters</button>
+                        <button @click="applyFilters" class="apply-filters-btn">{{ t('marketplace.applyFilters')
+                        }}</button>
                     </div>
                 </aside>
 
@@ -54,7 +58,7 @@
                 <div class="solutions-grid">
                     <!-- Popular Column -->
                     <div class="solutions-column">
-                        <h3 class="column-title">Popular</h3>
+                        <h3 class="column-title">{{ t('marketplace.popular') }}</h3>
                         <div class="solution-cards">
                             <div v-for="solution in popularSolutions" :key="solution.id" class="solution-card">
                                 <div class="solution-header">
@@ -71,8 +75,8 @@
                                             class="compliance-badge">{{ compliance }}</span>
                                     </div>
                                     <div class="solution-actions">
-                                        <button class="action-btn primary">Request Access</button>
-                                        <button class="action-btn secondary">Learn More</button>
+                                        <button class="action-btn primary">{{ t('marketplace.requestAccess') }}</button>
+                                        <button class="action-btn secondary">{{ t('marketplace.learnMore') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -98,8 +102,8 @@
                                             class="compliance-badge">{{ compliance }}</span>
                                     </div>
                                     <div class="solution-actions">
-                                        <button class="action-btn primary">Request Access</button>
-                                        <button class="action-btn secondary">Learn More</button>
+                                        <button class="action-btn primary">{{ t('marketplace.requestAccess') }}</button>
+                                        <button class="action-btn secondary">{{ t('marketplace.learnMore') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -125,8 +129,8 @@
                                             class="compliance-badge">{{ compliance }}</span>
                                     </div>
                                     <div class="solution-actions">
-                                        <button class="action-btn primary">Request Access</button>
-                                        <button class="action-btn secondary">Learn More</button>
+                                        <button class="action-btn primary">{{ t('marketplace.requestAccess') }}</button>
+                                        <button class="action-btn secondary">{{ t('marketplace.learnMore') }}</button>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +155,9 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 interface AISolution {
     id: string

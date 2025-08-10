@@ -1,12 +1,11 @@
 <template>
     <section class="features-section">
         <div class="container">
-            <h2>Our Platform Services</h2>
-            <p class="section-subtitle">We have many different AI services to choose from. Compare and find the best
-                solutions for your enterprise needs.</p>
+            <h2>{{ t('features.title') }}</h2>
+            <p class="section-subtitle">{{ t('features.subtitle') }}</p>
 
             <div v-if="loading" class="loading-state">
-                <p>Loading platform services...</p>
+                <p>{{ t('features.loadingServices') }}</p>
             </div>
 
             <ul v-else class="card-deck__cards container-fluid container-lg d-flex gap-medium gap-md-large p-0">
@@ -31,7 +30,7 @@
                                 class="tn-button mt-auto align-self-start fs-button-small fs-lg-button-medium fw-medium"
                                 :title="service.buttonTitle"
                                 @click="service.buttonText === 'Explore' ? scrollToServices() : null">
-                                {{ service.buttonText }}
+                                {{ service.buttonText === 'Explore' ? t('common.explore') : service.buttonText }}
                             </button>
                         </div>
                     </article>
@@ -43,8 +42,11 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { apiService } from '@/services/apiService'
 import type { PlatformService } from '@/types/platformService'
+
+const { t } = useI18n()
 
 const platformServices = ref<PlatformService[]>([])
 const loading = ref(true)

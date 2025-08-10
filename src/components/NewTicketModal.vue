@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { apiService } from '@/services/apiService';
+
+const { t } = useI18n();
 
 const emit = defineEmits(['close', 'ticket-created']);
 
 // Form field state
-const category = ref('Technical Support');
+const category = ref(t('ticketModal.categories.technical'));
 const description = ref('');
-const contactMethod = ref('In-app');
+const contactMethod = ref(t('ticketModal.contactMethods.inApp'));
 
 // Component state
 const isLoading = ref(false);
@@ -16,7 +19,7 @@ const successMessage = ref('');
 
 async function handleSubmit() {
     if (!description.value) {
-        errorMessage.value = 'Description is required.';
+        errorMessage.value = t('ticketModal.descriptionRequired');
         return;
     }
     isLoading.value = true;
@@ -42,7 +45,7 @@ async function handleSubmit() {
         const response = await apiService.createSupportTicket(ticketData);
         console.log('API response:', response);
 
-        successMessage.value = `Ticket created successfully! (ID: ${response.result.number})`;
+        successMessage.value = `${t('ticketModal.ticketCreated')} (ID: ${response.result.number})`;
 
         setTimeout(() => {
             emit('ticket-created');
@@ -51,7 +54,7 @@ async function handleSubmit() {
 
     } catch (error) {
         console.error('Error creating ticket:', error);
-        errorMessage.value = 'Failed to create ticket. Please try again.';
+        errorMessage.value = t('ticketModal.ticketCreateError');
     } finally {
         isLoading.value = false;
     }
@@ -62,39 +65,45 @@ async function handleSubmit() {
     <div class="modal-backdrop" @click.self="$emit('close')">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>New Support Ticket</h2>
+                <h2>{{ t('ticketModal.title') }}</h2>
                 <button class="close-btn" @click="$emit('close')">&times;</button>
             </div>
             <form @submit.prevent="handleSubmit">
                 <div class="form-group">
-                    <label for="category">Category</label>
+                    <label for="category">{{ t('ticketModal.category') }}</label>
                     <select id="category" v-model="category">
-                        <option>Technical Support</option>
-                        <option>Billing Issues</option>
-                        <option>General Inquiry</option>
+                        <option>{{ t('ticketModal.categories.technical') }}</option>
+                        <option>{{ t('ticketModal.categories.billing') }}</option>
+                        <option>{{ t('ticketModal.categories.general') }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">{{ t('ticketModal.description') }}</label>
                     <textarea id="description" v-model="description" rows="5"
-                        placeholder="Describe your issue in detail..." required></textarea>
+                        :placeholder="t('ticketModal.descriptionPlaceholder')" required></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label>Attachments (optional)</label>
+                    <label>{{ t('ticketModal.attachments') }}</label>
                     <div class="file-drop-zone">
-                        <p>Drag & drop files here or click to browse</p>
+                        <p>{{ t('ticketModal.dropZone') }}</p>
                         <input type="file" class="file-input" multiple>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Preferred Contact Method</label>
+                    <label>{{ t('ticketModal.contactMethod') }}</label>
                     <div class="radio-group">
-                        <label><input type="radio" v-model="contactMethod" value="Email"> Email</label>
-                        <label><input type="radio" v-model="contactMethod" value="Phone"> Phone</label>
-                        <label><input type="radio" v-model="contactMethod" value="In-app"> In-app</label>
+                        <label><input type="radio" v-model="contactMethod"
+                                :value="t('ticketModal.contactMethods.email')"> {{ t('ticketModal.contactMethods.email')
+                                }}</label>
+                        <label><input type="radio" v-model="contactMethod"
+                                :value="t('ticketModal.contactMethods.phone')"> {{ t('ticketModal.contactMethods.phone')
+                                }}</label>
+                        <label><input type="radio" v-model="contactMethod"
+                                :value="t('ticketModal.contactMethods.inApp')"> {{ t('ticketModal.contactMethods.inApp')
+                                }}</label>
                     </div>
                 </div>
 
@@ -102,10 +111,10 @@ async function handleSubmit() {
                 <div v-if="errorMessage" class="alert error">{{ errorMessage }}</div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn-secondary" @click="$emit('close')"
-                        :disabled="isLoading">Cancel</button>
+                    <button type="button" class="btn-secondary" @click="$emit('close')" :disabled="isLoading">{{
+                        t('common.cancel') }}</button>
                     <button type="submit" class="btn-primary" :disabled="isLoading">
-                        {{ isLoading ? 'Submitting...' : 'Submit Ticket' }}
+                        {{ isLoading ? t('ticketModal.submitting') : t('ticketModal.submitTicket') }}
                     </button>
                 </div>
             </form>

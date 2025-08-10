@@ -2,29 +2,29 @@
     <main class="login-view">
         <div class="login-container">
             <div class="login-card">
-                <h1>Login to My Cloud</h1>
+                <h1>{{ t('login.title') }}</h1>
                 <form @submit.prevent="handleLogin">
                     <div class="form-group">
-                        <label for="username">Username</label>
+                        <label for="username">{{ t('login.username') }}</label>
                         <input id="username" v-model="username" type="text" required
-                            placeholder="Enter your username" />
+                            :placeholder="t('login.usernamePlaceholder')" />
                     </div>
                     <div class="form-group">
-                        <label for="password">Password</label>
+                        <label for="password">{{ t('login.password') }}</label>
                         <input id="password" v-model="password" type="password" required
-                            placeholder="Enter your password" />
+                            :placeholder="t('login.passwordPlaceholder')" />
                     </div>
                     <div v-if="errorMessage" class="error-message">
                         {{ errorMessage }}
                     </div>
                     <button type="submit" class="login-btn" :disabled="isLoading">
-                        {{ isLoading ? 'Logging in...' : 'Login' }}
+                        {{ isLoading ? t('login.loggingIn') : t('login.loginButton') }}
                     </button>
                 </form>
                 <div class="demo-credentials">
-                    <p><strong>Demo credentials:</strong></p>
-                    <p>Username: admin</p>
-                    <p>Password: password</p>
+                    <p><strong>{{ t('login.demoCredentials') }}</strong></p>
+                    <p>{{ t('login.demoUsername') }}</p>
+                    <p>{{ t('login.demoPassword') }}</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import { useAuthStore } from '@/store/authStore'
+
+const { t } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
@@ -63,10 +66,10 @@ const handleLogin = async () => {
                 await router.push('/account')
             }
         } else {
-            errorMessage.value = 'Invalid username or password'
+            errorMessage.value = t('login.invalidCredentials')
         }
     } catch (error) {
-        errorMessage.value = 'An error occurred during login'
+        errorMessage.value = t('login.loginError')
     } finally {
         isLoading.value = false
     }

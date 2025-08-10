@@ -1,8 +1,8 @@
 <template>
     <div class="overview-dashboard">
         <div class="dashboard-header">
-            <h1 class="page-title">Dashboard Overview</h1>
-            <p class="page-subtitle">Welcome back! Here's what's happening with your AI Factory account.</p>
+            <h1 class="page-title">{{ t('overview.title') }}</h1>
+            <p class="page-subtitle">{{ t('overview.subtitle') }}</p>
         </div>
 
         <!-- Stats Cards Grid -->
@@ -10,7 +10,7 @@
             <div class="stat-card">
                 <div class="stat-icon gpu-icon">🖥️</div>
                 <div class="stat-content">
-                    <h3 class="stat-title">GPU Hours</h3>
+                    <h3 class="stat-title">{{ t('overview.gpuHours') }}</h3>
                     <div class="stat-value">{{ stats.gpuHours.used }}/{{ stats.gpuHours.total }}</div>
                     <div class="stat-unit">{{ stats.gpuHours.unit }}</div>
                     <div class="stat-progress">
@@ -23,7 +23,7 @@
             <div class="stat-card">
                 <div class="stat-icon storage-icon">💾</div>
                 <div class="stat-content">
-                    <h3 class="stat-title">Storage</h3>
+                    <h3 class="stat-title">{{ t('overview.storage') }}</h3>
                     <div class="stat-value">{{ stats.storage.used }}/{{ stats.storage.total }}</div>
                     <div class="stat-unit">{{ stats.storage.unit }}</div>
                     <div class="stat-progress">
@@ -36,7 +36,7 @@
             <div class="stat-card">
                 <div class="stat-icon egress-icon">📤</div>
                 <div class="stat-content">
-                    <h3 class="stat-title">Data Egress</h3>
+                    <h3 class="stat-title">{{ t('overview.dataEgress') }}</h3>
                     <div class="stat-value">{{ stats.dataEgress.used }}/{{ stats.dataEgress.total }}</div>
                     <div class="stat-unit">{{ stats.dataEgress.unit }}</div>
                     <div class="stat-progress">
@@ -49,7 +49,7 @@
             <div class="stat-card spending">
                 <div class="stat-icon spending-icon">💰</div>
                 <div class="stat-content">
-                    <h3 class="stat-title">This Month's Spend</h3>
+                    <h3 class="stat-title">{{ t('overview.thisMonthSpend') }}</h3>
                     <div class="stat-value">{{ stats.thisMonthSpend.currency }}{{ stats.thisMonthSpend.amount }}</div>
                     <div class="stat-change" :class="{ positive: stats.thisMonthSpend.change.startsWith('+') }">
                         {{ stats.thisMonthSpend.change }}
@@ -63,8 +63,8 @@
             <!-- Recent Activity -->
             <div class="content-section">
                 <div class="section-header">
-                    <h2 class="section-title">Recent Activity</h2>
-                    <button class="view-all-btn">View All</button>
+                    <h2 class="section-title">{{ t('overview.recentActivity') }}</h2>
+                    <button class="view-all-btn">{{ t('overview.viewAll') }}</button>
                 </div>
                 <div class="activity-list">
                     <div v-for="activity in recentActivity" :key="activity.id" class="activity-item"
@@ -87,24 +87,24 @@
             <!-- Quick Actions -->
             <div class="content-section">
                 <div class="section-header">
-                    <h2 class="section-title">Quick Actions</h2>
+                    <h2 class="section-title">{{ t('overview.quickActions') }}</h2>
                 </div>
                 <div class="quick-actions">
                     <button class="action-btn primary">
                         <span class="action-icon">🚀</span>
-                        <span class="action-text">Launch GPU Instance</span>
+                        <span class="action-text">{{ t('overview.launchGpuInstance') }}</span>
                     </button>
                     <button class="action-btn">
                         <span class="action-icon">📊</span>
-                        <span class="action-text">View Usage Report</span>
+                        <span class="action-text">{{ t('overview.viewUsageReport') }}</span>
                     </button>
                     <button class="action-btn">
                         <span class="action-icon">🔧</span>
-                        <span class="action-text">Manage API Keys</span>
+                        <span class="action-text">{{ t('overview.manageApiKeys') }}</span>
                     </button>
                     <button class="action-btn">
                         <span class="action-icon">📋</span>
-                        <span class="action-text">Create Support Ticket</span>
+                        <span class="action-text">{{ t('overview.createSupportTicket') }}</span>
                     </button>
                 </div>
             </div>
@@ -114,7 +114,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { apiService } from '@/services/apiService';
+
+const { t } = useI18n();
 
 interface DashboardStats {
     gpuHours: { used: number; total: number; unit: string };

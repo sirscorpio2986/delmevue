@@ -4,39 +4,38 @@
             <div class="footer-top">
                 <div class="logo-container">
                     <RouterLink to="/" class="logo">SovereignAI Cloud</RouterLink>
-                    <p class="tagline">Enterprise-grade Al solutions with full data sovereignty, hosted exclusively in
-                        Norway.</p>
+                    <p class="tagline">{{ t('footer.tagline') }}</p>
                 </div>
                 <nav class="footer-navigation">
                     <div class="nav-column">
-                        <strong>Solutions</strong>
+                        <strong>{{ t('footer.solutions') }}</strong>
                         <ul>
                             <li>
-                                <RouterLink to="/purchase">Al Marketplace</RouterLink>
+                                <RouterLink to="/purchase">{{ t('footer.aiMarketplace') }}</RouterLink>
                             </li>
-                            <li><a href="#">Al Factory</a></li>
+                            <li><a href="#">{{ t('footer.aiFactory') }}</a></li>
                             <li>
-                                <RouterLink to="/category/iaas">GPU Services</RouterLink>
+                                <RouterLink to="/category/iaas">{{ t('footer.gpuServices') }}</RouterLink>
                             </li>
                         </ul>
                     </div>
                     <div class="nav-column">
-                        <strong>Resources</strong>
+                        <strong>{{ t('footer.resources') }}</strong>
                         <ul>
-                            <li><a href="#">Security & Compliance</a></li>
-                            <li><a href="#">Documentation</a></li>
-                            <li><a href="#">Case Studies</a></li>
-                            <li><a href="#">White Papers</a></li>
-                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">{{ t('footer.security') }}</a></li>
+                            <li><a href="#">{{ t('footer.documentation') }}</a></li>
+                            <li><a href="#">{{ t('footer.caseStudies') }}</a></li>
+                            <li><a href="#">{{ t('footer.whitepapers') }}</a></li>
+                            <li><a href="#">{{ t('footer.blog') }}</a></li>
                         </ul>
                     </div>
                     <div class="nav-column">
-                        <strong>Company</strong>
+                        <strong>{{ t('footer.company') }}</strong>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">{{ t('footer.aboutUs') }}</a></li>
+                            <li><a href="#">{{ t('footer.careers') }}</a></li>
                             <li>
-                                <RouterLink to="/account/support">Contact</RouterLink>
+                                <RouterLink to="/account/support">{{ t('footer.contact') }}</RouterLink>
                             </li>
                         </ul>
                     </div>
@@ -44,7 +43,7 @@
             </div>
             <hr class="separator">
             <div class="footer-bottom">
-                <span class="copyright">© 2025 SovereignAI Factory. All rights reserved.</span>
+                <span class="copyright">{{ t('footer.copyright') }}</span>
             </div>
         </div>
     </footer>
@@ -52,6 +51,9 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>
 
 <style lang="scss" scoped>

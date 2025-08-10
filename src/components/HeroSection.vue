@@ -3,19 +3,19 @@
         <div class="container">
             <div class="content-column">
                 <div class="text-group">
-                    <h1 class="hero-title">Enterprise AI Infrastructure Reimagined</h1>
+                    <h1 class="hero-title">{{ t('hero.title') }}</h1>
                     <div class="hero-editorial">
-                        <p>Unlock the power of sovereign Al with our comprehensive GPU-as-a-Service platform, advanced
-                            ML models, and cutting-edge Al laboratories.</p>
-                        <p>Designed for enterprise excellence.</p>
+                        <p>{{ t('hero.subtitle1') }}</p>
+                        <p>{{ t('hero.subtitle2') }}</p>
                     </div>
                 </div>
                 <div class="actions-group d-lg-flex gap-large mt-xlarge">
-                    <button @click="scrollToServices" class="tn-button tn-button--dark" title="Explore Platform">
-                        Explore Platform
+                    <button @click="scrollToServices" class="tn-button tn-button--dark"
+                        :title="t('hero.explorePlatform')">
+                        {{ t('hero.explorePlatform') }}
                     </button>
                     <a href="#" class="tn-button tn-button--link tn-button--dark mt-medium mt-lg-0" target="_self"
-                        title="Schedule Demo">Schedule Demo</a>
+                        :title="t('hero.scheduleDemo')">{{ t('hero.scheduleDemo') }}</a>
                 </div>
             </div>
         </div>
@@ -23,6 +23,10 @@
 </template>
 
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
 const scrollToServices = () => {
     const servicesSection = document.getElementById('service-offerings');
     if (servicesSection) {
