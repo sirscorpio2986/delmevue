@@ -1,3 +1,5 @@
+import { corsSafePost, getApiBaseUrl } from '@/utils/apiUtils';
+
 import productsData from '@/data/products.json'
 import usageData from '@/data/usage.json'
 import invoicesData from '@/data/invoices.json'
@@ -126,12 +128,7 @@ export const apiService = {
   },
 
   async createSupportTicket(ticketData: { short_description: string, description: string }) {
-    const endpoint = 'https://tataamericaintlcorpdemo10.service-now.com/api/now/table/incident';
-
-    const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': 'Basic Y2xvdWRhdG9tYXRpb246QXV0b21hdGlvbjEyMyE='
-    };
+    const endpoint = `${getApiBaseUrl()}/table/incident`;
 
     const payload = {
       "caller_id": "a9ca92193b8be610ec07b97906e45a1a",
@@ -141,28 +138,34 @@ export const apiService = {
       "description": ticketData.description
     };
 
-    console.log('API Service - Endpoint:', endpoint);
-    console.log('API Service - Headers:', headers);
-    console.log('API Service - Payload:', payload);
-    try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: headers,
-        body: JSON.stringify(payload)
-      });
-
-      console.log('API Service - Response status:', response.status);
-      console.log('API Service - Response headers:', response.headers);
-
-      if (!response.ok) {
-        // Throw an error with status text if the response is not successful
-        throw new Error(`Error: ${response.status} ${response.statusText}`);
+    const config = {
+      headers: {
+        'Authorization': 'Basic Y2xvdWRhdG9tYXRpb246QXV0b21hdGlvbjEyMyE='
       }
+    };
 
-      const responseData = await response.json();
-      console.log('API Service - Response data:', responseData);
-      return responseData;
-    } catch (error) {
+    console.log('API Service - Creating support ticket:', { endpoint, payload });
+
+    try {
+      const response = await corsSafePost(endpoint, payload, config);
+      
+      // If we get a mock response in development, format it properly
+      if (response.success && response.message?.includes('Mock response')) {
+        return {
+          result: {
+            number: `INC${Date.now()}`,
+            sys_id: `mock_${Date.now()}`,
+            short_description: ticketData.short_description,
+            description: ticketData.description,
+            state: '1', // New
+            priority: '3', // Medium
+            created_on: new Date().toISOString()
+          }
+        };
+      }
+      
+      return response;
+    } catch (error: any) {
       console.error("Failed to create support ticket:", error);
       throw error;
     }

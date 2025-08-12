@@ -42,7 +42,7 @@ export default i18n
 // Export locale switching function
 export const setLocale = (locale: string) => {
   if (SUPPORT_LOCALES.some(l => l.code === locale)) {
-    i18n.global.locale.value = locale
+    i18n.global.locale.value = locale as 'en' | 'no'
     if (typeof window !== 'undefined') {
       localStorage.setItem('locale', locale)
       document.documentElement.lang = locale
